@@ -1,0 +1,51 @@
+.card-body{
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: 0.1rem;
+}
+
+
+
+#fsc{
+    font-size: 30px;
+    color: #343a40;
+    transition: all.3s;
+}
+#fsc:hover{
+    color: orangered;
+}
+
+#fyt{
+    font-size: 30px;
+    color:#343a40;
+    transition: all.3s;
+}
+#fyt:hover{
+    color: red;
+}
+
+.link_stream{
+    color: black;
+}
+.link_stream:hover{
+    text-decoration:none;
+}
+.wrap_links{
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+}
+.icons{
+    font-size: 15px;
+
+}
+.icon_user_card{
+    margin-right: 4px;
+}
+.icon_profession_card{
+    margin-right: 13px;
+}
+.icon_country_card{
+    margin-left: 2px;
+    margin-right: 10px;
+}

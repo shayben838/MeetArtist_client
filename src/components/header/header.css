@@ -1,0 +1,56 @@
+.fixed-top{
+    z-index: 10;
+}
+a:not([href]){
+    color: white;
+}
+
+a:not([href]):hover{
+    color: #343a40;
+}
+.search_link{
+    color: whitesmoke;
+    border: 1.5px solid;
+    padding: 8px;
+    border-radius: 10px;
+    transition: all .5s;
+
+
+}
+.search_link:hover{
+    color :#343a40;
+    background-color: whitesmoke;     
+}
+.input_search_header{
+    width: auto;
+}
+.meet_artist_logo{
+    letter-spacing: 0.2rem;
+    transition: all.4s;
+}
+.meet_artist_logo:hover{
+    letter-spacing: 0.3rem;
+    color: chartreuse;
+}
+.headers_link{
+    text-decoration: none;
+}
+.headers_link:hover{
+    text-decoration: none;
+}
+.wrap_search_hedear{
+    margin-left: 10px;
+    position: relative;
+    z-index: 9;
+}
+
+.wrap_auto_headear{
+    background-color: #31353a;
+    width: 200px;
+    border-radius: 2px;
+    overflow: hidden;
+    position: absolute;
+    top: 50px;
+    left: 20px;
+}
+

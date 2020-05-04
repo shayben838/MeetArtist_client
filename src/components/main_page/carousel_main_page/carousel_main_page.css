@@ -1,0 +1,18 @@
+.wrap_main_image{
+    height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.firstImage{background-image: url("../images/first.jpg");
+}
+.secondImage{background-image: url("../images/second.png");
+}
+.thirdImage{background-image: url("../images/third.jpg");
+}
+
+
+.carousel-indicators{
+    z-index: 9;
+}

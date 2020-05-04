@@ -1,0 +1,218 @@
+.input_image{
+    background-color: chartreuse;
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+.labal_input_file{
+    color: #383b3f;
+    letter-spacing: 0.1rem;
+    border: 2px solid #383b3f;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.labal_input_file:hover{
+    color: whitesmoke;
+    background-color: #383b3f;
+}
+.image_profile_sign_up{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+
+
+.wrap_sign_up_form{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: whitesmoke;
+    overflow:auto;
+    
+}
+.wrap_form_sign_up{
+    display: block;
+    border-radius: 20px;
+    width: 80%;
+    margin: auto;    
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+#regForm {
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+   
+ }
+  
+.wrap_sign_up_form {
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+.outForm{
+    color: #383b3f;
+    
+}
+.outForm:hover{
+    border: 2px solid #383b3f;
+}
+
+
+
+.wrap_heading_sing_up{
+    text-align: center;
+    margin-top: 80px;
+    letter-spacing: 0.5rem;
+
+}
+.button_sign_up{
+    width: 80px;
+    margin: 0px 8px ;
+    font-size: 20px;
+    color: whitesmoke;
+    background-color: #383b3f;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    transition: all .4s;
+    outline: none;
+}
+.button_sign_up:hover{
+    background-color: chartreuse;
+    color: #383b3f;
+    border: 2px solid whitesmoke;
+}
+.wrap_buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+}
+#Headline{
+    text-align: center;
+    margin-top: 5px;
+}
+.registerAPI_button{
+    background-color: #383b3f;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    padding: 30px;
+    letter-spacing: 0.5rem;
+    font-weight: bolder;
+    font-size: 30px;
+    transition: all .4s;
+}
+.registerAPI_button:hover{
+    box-shadow: 5px 15px 5px 5px  chartreuse;
+    color:#383b3f ;
+    background-color: whitesmoke;
+}
+.complite_sign_up{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: whitesmoke;
+}
+.inner_complite_sign_up{
+    /* background-color: violet; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.must_form_input{
+    color: red;
+    position: absolute;
+    top: -8px;
+    right: -10px;
+}
+
+@keyframes shakeAnim {
+    0% {
+        left: 0
+    }
+    1% {
+        left: -3px
+    }
+    2% {
+        left: 5px
+    }
+    3% {
+        left: -8px
+    }
+    4% {
+        left: 8px
+    }
+    5% {
+        left: -5px
+    }
+    6% {
+        left: 3px
+    }
+    7% {
+        left: 0
+    }
+}
+
+@keyframes shake {
+    0% {
+        left: 0
+    }
+    1% {
+        left: -3px
+    }
+    2% {
+        left: 5px
+    }
+    3% {
+        left: -8px
+    }
+    4% {
+        left: 8px
+    }
+    5% {
+        left: -5px
+    }
+    6% {
+        left: 3px
+    }
+    7% {
+        left: 0
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .wrap_form_sign_up{
+       width: 50%;
+    }
+}

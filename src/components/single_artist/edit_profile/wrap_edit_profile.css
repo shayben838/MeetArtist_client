@@ -1,0 +1,71 @@
+.wrap_edit_form{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(1, 1, 1, .97);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.iner_edit_box{
+    background-color: whitesmoke;
+    height: 80%;
+    width: 80%;
+    overflow: auto;
+    padding-bottom: 50px;
+}
+.title{
+    border-bottom: 1px solid #343a40;
+    letter-spacing: .1rem;
+}
+#icon_out_edit{
+    color: whitesmoke;
+}
+#icon_out_edit:hover{
+    border-color: whitesmoke;
+}
+.wrap_inputs{
+    padding:20px
+}
+.submit_button{
+    float: right;
+    margin-right: 20px;
+    border: none;
+    background-color: #343a40 ;
+    color: whitesmoke;
+    letter-spacing: 0.1rem;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+
+.pencil_edit_button{
+    background-color: transparent;
+    border: none;
+    color:#343a40 ;
+    margin-left: 200px;
+}
+.pencil_edit_button:hover{
+    color: black;
+}
+.wrap_edit_form {
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}

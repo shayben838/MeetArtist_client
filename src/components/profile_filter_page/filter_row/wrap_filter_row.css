@@ -1,0 +1,139 @@
+.nav_filter{
+    background-color: whitesmoke;
+}
+
+.navbar_mobil{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
+.main_drop_down{
+    margin: 1px ;
+}
+.dropDownMenu{
+    background-color: #383b3f;
+    border: 1px solid whitesmoke;
+    width: 250px;
+}
+.drop_down_button{
+    margin-bottom: .3rem;
+    width: 150px;
+    text-align: left;
+    background-color: #383b3f;
+    overflow: hidden;
+}
+.wrap_ul{
+    max-height: 300px;
+    width: 240px;
+    overflow-y: auto;
+    overflow-x: hidden; 
+}
+
+.wrap_input{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.input_drop_down{
+    width: 90%;
+    color: #383b3f;
+    padding: 5px;
+    padding-left: 10px;
+    margin: 5px 0px;
+    border-radius: 10px;
+    border: none;
+    outline-style: none;
+}
+.button_drop_down{
+    color: whitesmoke;
+    background-color: transparent;
+    border: none;
+    padding-left: 20px;
+    white-space: nowrap;
+    
+}
+.button_drop_down:hover{
+    color: chartreuse;
+}
+.input_age{
+    width: 40%;
+    color: #383b3f;
+    padding: 5px;
+    padding-left: 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+    border: none;
+    outline-style: none;
+}
+.wrap_age_inputs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filter_icon{
+    color: whitesmoke;
+}
+@media screen and (max-width: 1200px) {
+    .wrap_ul{
+        max-height: 300px;
+        width: 100%;
+    }
+    .dropDownMenu{
+        width: 100%;
+    }
+    
+    .wrap_input{
+        justify-content: left;
+    }
+    .input_drop_down{
+        width: 200px;
+        margin-left: 20px;
+
+       
+    }
+    .input_age{
+        width: 200px;
+    }
+    .wrap_age_inputs{
+        justify-content: left;
+    }
+
+}
+
+
+
+
+@media screen and (min-width: 992px) {
+    .drop_down_button {
+        width: 120px;
+        margin-right: 3px;
+    }
+    .nav_filter{
+        background-color: rgba(1, 1, 1, .2);
+    }
+  }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+
+    background: chartreuse;
+
+  }

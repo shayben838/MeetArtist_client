@@ -1,0 +1,72 @@
+.wrap_log_in{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 40px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: whitesmoke;
+    color: #383b3f;
+    
+}
+.form-signin{
+    width: 250px;
+}
+.fa-headphones{
+    font-size: 80px;
+    color: chartreuse;
+    padding: 10px;
+    border: 5px solid #383b3f;
+    background-color: #383b3f;
+    border-radius: 5px;
+}
+#out_log_in:hover{
+    border: 2px solid #383b3f;
+}
+
+.facebook{
+    cursor: pointer;
+    border: 1px solid transparent;
+    color: #fff;
+    margin-right: 5px;
+    background-color: #3b5998;
+    width: 30px;
+
+}
+.google{
+    width: 30px;
+    cursor: pointer;
+   background-color: #FF3E30;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+
+@media screen and (min-width:800px){
+    .form-signin{
+        width: 300px;
+    }   
+
+}
+
+.wrap_log_in {
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}

@@ -1,0 +1,45 @@
+.wrap_form_auto{
+    width: 240px;
+}
+
+.wrap_input_auto{
+    display: flex;
+    position: relative;
+    justify-content: center;
+
+}
+.wrap_auto_buttons{
+    height: 80px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.button_drop_down_auto{
+    display: block;
+    color:lightgray;
+    background-color: transparent;
+    border: none;
+    padding-left: 5px;
+    white-space: nowrap;
+}
+.button_drop_down_auto:hover{
+    color:#383b3f;
+}
+.button_drop_down_sign_up{
+    display: block;
+    color:#55585c;
+    background-color: transparent;
+    border: none;
+    padding-left: 5px;
+    white-space: nowrap;
+}
+.button_drop_down_sign_up:hover{
+    color:black;
+}
+.delete_input_value_button{
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    cursor: pointer;
+    
+}

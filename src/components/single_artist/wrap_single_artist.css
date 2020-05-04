@@ -1,0 +1,119 @@
+.wrap_member_description{
+    letter-spacing: 0.1rem;
+}
+
+.cover_photo{
+    position: relative;
+}
+.profil_photo{
+    width: 150px;
+    height: 100px;
+    position : absolute;
+    top: 30%;
+    left: 50px;
+}
+.profil_img{
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.wrap_profil_image_button{
+    border-radius: 50%;
+    border: none
+}
+
+.details_box{
+    /* box-shadow: 1px 1px 5px 1px black; */
+    overflow: hidden;
+    width: 310px;
+    padding: 5px;
+}
+
+.details_box:hover{
+    /* box-shadow: 1px 1px 10px 1px black; */
+}
+.fa-soundcloud{
+    font-size: 20px;
+    color: whitesmoke;
+    transition: all.3s;
+}
+.fa-soundcloud:hover{
+    color: orangered;
+}
+.fa-youtube{
+    font-size: 20px;
+    color: whitesmoke;
+    transition: all.3s;
+}
+.fa-youtube:hover{
+    color: red;
+}
+.link_stream{
+    color: black;
+}
+.link_stream:hover{
+    text-decoration:none;
+}
+.wrap_links_cover_image{
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+}
+
+.email_button{
+    cursor: pointer;
+    color: whitesmoke;
+    font-size: 20px;
+}
+.email_button:hover{
+    color: darkgray;
+    transition: all.3s;
+}
+.wrap_page_image_full_screen{
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(1, 1, 1, .97);
+    z-index: 1;
+}
+#outFormImageFull{
+    color: whitesmoke;
+    border-color: none;
+}
+#outFormImageFull:hover{
+    border-color: whitesmoke;
+}
+.like_icon{
+    color: white;
+    font-size: 18px;   
+    transition: all.4s;
+    cursor: pointer;
+    border-radius: 200px;
+    border: none;
+}
+.like_icon:hover{
+    /* color: blue; */
+    /* box-shadow: 0px 0px 30px 0px whitesmoke; */
+    text-shadow: 1px 1px 10px 1px whitesmoke;;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .fa-soundcloud{
+        font-size: 30px;
+    }
+    .fa-youtube{
+        font-size: 30px;
+    }
+    .wrap_links_cover_image{
+        right: 70px;
+    }
+    .email_button{
+        font-size: 30px;
+    }
+    .like_icon{
+        font-size: 28px;   
+    }
+  }
