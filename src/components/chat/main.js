@@ -3,7 +3,7 @@ import socketIOClient from "socket.io-client";
 import "./css/style.css"
 import "../header/header.css"
 import UsersList from "./users_list";
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://meetartistserver.herokuapp.com/";
 const socket = socketIOClient(ENDPOINT);
 
 const Main = ({ userName, room, userLooged }) => {
