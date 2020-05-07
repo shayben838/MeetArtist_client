@@ -12,7 +12,7 @@ const importsMainAPI = async () =>{
     const genre = await getGenre();
     const sub_genre= await getSubGenre();
     const profession = await getProfession();
-
+        console.log({cities,countries,users,genre,sub_genre,profession})
     return {cities,countries,users,genre,sub_genre,profession}
 }
 
