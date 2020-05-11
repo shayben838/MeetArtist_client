@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import socketIOClient from "socket.io-client";
+// import socketIOClient from "socket.io-client";
 import "./css/style.css"
 import "../header/header.css"
 import UsersList from "./users_list";
-const ENDPOINT = "https://meetartistserver.herokuapp.com/";
-const socket = socketIOClient(ENDPOINT);
+// const ENDPOINT = "https://meetartistserver.herokuapp.com/";
+// const socket = socketIOClient(ENDPOINT);
 
 const Main = ({ userName, room, userLooged }) => {
 
@@ -13,35 +13,35 @@ const Main = ({ userName, room, userLooged }) => {
   const [users, setUsers] = useState([]);
   const [usersList, setUsersList] = useState("");
 
-  useEffect(() => {
-    // Join chatroom
-    console.log({ userName, room })
-    socket.emit('joinRoom', { userName: userName, room: room });
+  // useEffect(() => {
+  //   // Join chatroom
+  //   console.log({ userName, room })
+  //   socket.emit('joinRoom', { userName: userName, room: room });
 
-    socket.on('message', message => {
-      outputMessage(message);
+  //   socket.on('message', message => {
+  //     outputMessage(message);
 
-      // Scroll down
-      const chatWindow = document.getElementById('chat-messages');
-      var xH = chatWindow.scrollHeight;
-      chatWindow.scrollTo(0, xH);
-    });
-  }, []);
+  //     // Scroll down
+  //     const chatWindow = document.getElementById('chat-messages');
+  //     var xH = chatWindow.scrollHeight;
+  //     chatWindow.scrollTo(0, xH);
+  //   });
+  // }, []);
 
   // Get room and users
-  socket.on('roomUsers', ({ room, users }) => {
-    setroomName(room)
-    setUsers(users)
-  });
+  // socket.on('roomUsers', ({ room, users }) => {
+  //   setroomName(room)
+  //   setUsers(users)
+  // });
 
   // Message submit
-  const SendMessage = () => {
-    // Emit message to server
-    socket.emit('chatMessage', chatMessage);
-    // Clear input
-    let input = document.getElementById('msg');
-    input.value = ""
-  }
+  // const SendMessage = () => {
+  //   // Emit message to server
+  //   socket.emit('chatMessage', chatMessage);
+  //   // Clear input
+  //   let input = document.getElementById('msg');
+  //   input.value = ""
+  // }
   // Output message to DOM
   const outputMessage = (message) => {
     const div = document.createElement('div');
@@ -94,7 +94,7 @@ const Main = ({ userName, room, userLooged }) => {
           </main>
           <div className="wrap_inputs">
             <input className="input_message" onChange={(e) => setchatMessage(e.target.value)} id="msg" type="text" placeholder="Enter Message" required autocomplete="off" />
-            <button type="button" onClick={() => SendMessage()} className="btn_send">Send</button>
+            {/* <button type="button" onClick={() => SendMessage()} className="btn_send">Send</button> */}
           </div>
         </div>
 
