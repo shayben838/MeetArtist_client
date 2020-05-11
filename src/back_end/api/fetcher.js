@@ -27,7 +27,8 @@ const fetcherCookies = axios.create({
     // const fetcherCookies = (token)=>axios.create({
     // method:"post",
     baseURL: "https://meetartistserver.herokuapp.com",
-    withCredentials: true,
+    // withCredentials: true,
+    
     // headers:{
     //     'Authorization': `Bearer ${token}`
 
