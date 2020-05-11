@@ -6,7 +6,7 @@ import {getSubGenre} from "./api_action"
 import {getProfession} from "./api_action"
 
 const importsMainAPI = async () =>{
-    // const cities = await getCities();
+    const cities = await getCities();
     // const countries = await getCountries();
 
     // const users = await getAllArtist();
@@ -14,7 +14,7 @@ const importsMainAPI = async () =>{
     // const sub_genre= await getSubGenre();
     // const profession = await getProfession();
 
-    // return {cities}
+    return {cities}
     // return {cities,countries,users,genre,sub_genre,profession}
 }
 
