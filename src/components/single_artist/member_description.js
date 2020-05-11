@@ -13,6 +13,10 @@ function MemberDescription({ user, dataAPI }) {
     const city = dataAPI.cities.result.filter(item => item.id === user.city_id)[0].name;
     const genre = dataAPI.genre.result.filter(item => item.id + "" === user.genre_id)[0].name;
     const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
+
+    console.log(dataAPI.sub_genre.result)
+    // const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
+
     const booking = temporeryBookingArr.filter(item => item.id + "" === user.booking)[0].name
     const studio = temporeryStudioArr.filter(item => item.id + "" === user.studio)[0].name
     return (

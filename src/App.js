@@ -86,21 +86,21 @@ class App extends React.Component {
                 </Route>
 
                 <Route exact path="/search">
-                  {/* <WrapSearchPage dataAPI={this.state.dataAPI} /> */}
+                  <WrapSearchPage dataAPI={this.state.dataAPI} />
                 </Route>
 
                 <Route exact path="/SignUp">
-                  {/* <WrapSignUp dataAPI={this.state.dataAPI} formType="signUp" /> */}
+                  <WrapSignUp dataAPI={this.state.dataAPI} formType="signUp" />
                 </Route>
 
-                {/* <Route exact path={"/singleArtist/:id"}
+                <Route exact path={"/singleArtist/:id"}
                   render={(props) => <WrapSingleArtist key={Math.random()} {...props} dataAPI={this.state.dataAPI} isAuthed={true} />}
-                /> */}
+                />
 
 
 
                 <Route exact path="/">
-                  {/* <MainPage dataAPI={this.state.dataAPI} /> */}
+                  <MainPage dataAPI={this.state.dataAPI} />
                 </Route>
                 {/* 404 */}
                 <Route exact path="*">
