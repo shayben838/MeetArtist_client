@@ -100,7 +100,7 @@ class App extends React.Component {
 
 
                 <Route exact path="/">
-                  <MainPage dataAPI={this.state.dataAPI} />
+                  {/* <MainPage dataAPI={this.state.dataAPI} /> */}
                 </Route>
                 {/* 404 */}
                 <Route exact path="*">
