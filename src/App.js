@@ -67,7 +67,7 @@ class App extends React.Component {
             <div className="App">
               {this.state.redirectLogOut && <Redirect to="/" />}
 
-              {/* <Header user={this.props.user} logOut={this.logOut} passUser={this.passUser} dataAPI={this.state.dataAPI} /> */}
+              <Header user={this.props.user} logOut={this.logOut} passUser={this.passUser} dataAPI={this.state.dataAPI} />
               <Switch>
 
                 {this.props.user &&
