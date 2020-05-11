@@ -4,7 +4,7 @@ import axios from "axios";
 // HEROKU
 const fetcher = axios.create({
     baseURL: "https://meetartistserver.herokuapp.com",
-    withCredentials: true
+    // withCredentials: true
 })
 
 export default fetcher;

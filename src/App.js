@@ -71,7 +71,8 @@ class App extends React.Component {
 
                 {this.props.user &&
                   <Route exact path="/chat">
-                    <Intro user={this.props.user} />
+                    {/* <Intro user={this.props.user} /> */}
+                    <h1>chat</h1>
                   </Route>
                 }
                 
