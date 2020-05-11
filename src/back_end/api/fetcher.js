@@ -4,7 +4,7 @@ import axios from "axios";
 // HEROKU
 const fetcher = axios.create({
     baseURL: "https://meetartistserver.herokuapp.com",
-    // withCredentials: true
+    withCredentials: true
 })
 
 export default fetcher;
@@ -27,8 +27,8 @@ const fetcherCookies = axios.create({
     // const fetcherCookies = (token)=>axios.create({
     // method:"post",
     baseURL: "https://meetartistserver.herokuapp.com",
-    // withCredentials: true,
-    
+    withCredentials: true,
+
     // headers:{
     //     'Authorization': `Bearer ${token}`
 
