@@ -21,7 +21,7 @@ function CardArtist({ styleCard, user, dataAPI }) {
             <div className={styleCard.inner} style={{ width: "15rem" }}>
                 <div>
                     {/* here need to change to the real image of the user */}
-                    <img src={"https://meetartistserver.herokuapp.com/public/" + user.profile_image} className="card-img-top" alt="..." height="200" width="100%" />
+                    <img src={"https://meetartistserver.herokuapp.com/" + user.profile_image} className="card-img-top" alt="..." height="200" width="100%" />
                 </div>
                 <div className="card-body">
 
