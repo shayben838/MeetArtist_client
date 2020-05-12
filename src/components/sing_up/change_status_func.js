@@ -19,15 +19,15 @@ export const changeStatusByParams = (status, operation, state) => {
 
 
     if (status === 3) {
-        if ((state.profession.value.length === 0 || state.studio.value.length === 0 || state.genre.value.length === 0 || state.sub_genre.value.length === 0 || state.booking.value.length === 0 || state.sound_cloud.value.length === 0 || state.you_tube.value.length === 0)&& operation === "Next") {
+        if ((state.profession.value.length === 0 || state.studio.value.length === 0 || state.genre.value.length === 0 || state.sub_genre.value.length === 0 || state.booking.value.length === 0 )&& operation === "Next") {
             return status
         }
-        if (state.profession.errors.length !== 0 || state.studio.errors.length !== 0 || state.genre.errors.length !== 0 || state.sub_genre.errors.length !== 0 ||  state.booking.errors.length !== 0 || state.sound_cloud.errors.length !== 0 || state.you_tube.errors.length !== 0) {
+        if (state.profession.errors.length !== 0 || state.studio.errors.length !== 0 || state.genre.errors.length !== 0 || state.sub_genre.errors.length !== 0 ||  state.booking.errors.length !== 0 ) {
             return status
         }
     }
     if (status === 4) {
-        if ((state.main_image.length === 0 || state.headline.value.length === 0 )&& operation === "Next") {
+        if (( state.headline.value.length === 0 )&& operation === "Next") {
             return status
         }
         if (state.headline.errors.length !== 0 ) {

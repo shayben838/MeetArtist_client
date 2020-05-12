@@ -22,14 +22,14 @@ class StepFour extends React.Component {
     render() {
         return (
             <div>
-                <div className="d-flex justify-content-center position-relative">
+                {/* <div className="d-flex justify-content-center position-relative">
                     <img alt="profil " className="image_profile_sign_up" src={this.state.file} height="200px" />
-                    <span className="must_form_input">*</span>
                 </div>
                 <div className="d-flex justify-content-center">
                     <input type="file" name="file" id="file" className="input_image" onChange={this.handleChange} />
                     <label htmlFor="file" className="labal_input_file ">Choose a file</label>
-                </div>
+                </div> */}
+                
                 <div className="position-relative">
                     <input type="text" name="headline" placeholder="Headline" id="Headline" defaultValue={this.props.state.headline.value}
                         className={"form-control mb-1"} onBlur={this.props.onchange} />

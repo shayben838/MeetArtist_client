@@ -94,7 +94,7 @@ class App extends React.Component {
                 </Route>
 
                 <Route exact path={"/singleArtist/:id"}
-                  render={(props) => <WrapSingleArtist key={Math.random()} {...props} dataAPI={this.state.dataAPI} isAuthed={true} />}
+                  render={(props) => <WrapSingleArtist key={Math.random()} {...props} dataAPI={[this.state.dataAPI]} isAuthed={true} />}
                 />
 
 

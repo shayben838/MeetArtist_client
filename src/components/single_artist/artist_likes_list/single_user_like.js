@@ -1,18 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./wrap_likes_list.css"
+import wave from "../../card_artist/wave.png"
 
-function SingleUserLike({user}) {
+function SingleUserLike({ user,dataAPI }) {
+    const city = dataAPI[0].cities.result.filter(item => item.id === user.city_id)[0].name;
     return (
         <li className="li_likes">
-            <Link to={`/singleArtist/${user.id}`}className="link_liks_list"  >
+            <Link to={`/singleArtist/${user.id}`} className="link_liks_list"  >
                 <div className="row m-0">
                     <div className="col-auto p-0">
-                        <img className=" image_lists_of_likes" src={"http://localhost:5000/" + user.profile_image} alt="..." />
+                        <img className=" image_lists_of_likes" src={wave} alt="..." />
+
+                        {/* <img className=" image_lists_of_likes" src={"http://localhost:5000/" + user.profile_image} alt="..." /> */}
                     </div>
                     <div className="col-auto wrap_name_headline">
                         <p className="m-0 user_name_like ">{user.display_name}</p>
-                        <p className="m-0">{user.headline}</p>
+                        <p className="m-0">{city}</p>
                     </div>
                 </div>
             </Link>

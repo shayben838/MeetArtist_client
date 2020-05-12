@@ -9,6 +9,7 @@ import { PostLike } from "../../../back_end/api/api_action";
 import { GetAllLikesByUser } from "../../../back_end/api/api_action";
 import { GetAllLikesByUserLoged } from "../../../back_end/api/api_action";
 import { removeLikeByUser } from "../../../back_end/api/api_action";
+import wave from "../../card_artist/wave.png"
 
 function useFetch(userLoged, user) {
     const [userLikes, setUserLikes] = useState("");
@@ -67,7 +68,7 @@ function HeaderImages({ user, userLoged, dataAPI }) {
                             {(userLoged.id !== user.id) &&
                                 <div>
                                     {(userLoged && likes.haveLike === "false") &&
-                                        <i  className="fas fa-thumbs-up like_icon mr-2" onClick={() => like()}></i>
+                                        <i className="fas fa-thumbs-up like_icon mr-2" onClick={() => like()}></i>
                                     }
                                     {(userLoged && likes.haveLike === "true") &&
                                         <i className="fas fa-thumbs-down   like_icon mr-2 " onClick={() => removeLike()}></i>
@@ -81,20 +82,37 @@ function HeaderImages({ user, userLoged, dataAPI }) {
                                     }
                                 </div>
                             }
-                            <a className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
-                                <i className=" fab fa-soundcloud  " ></i>
-                            </a>
+                            {user.sound_cloud &&
+                                <a className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
+                                    <i className=" fab fa-soundcloud  " ></i>
+                                </a>
+                            }
+                            {!user.sound_cloud &&
+                                <span className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" >
+                                    <i id="faNull" className=" fab fa-soundcloud  " ></i>
+                                </span>
+                            }
+                            {user.you_tube &&
+                                <a className="link_stream m-0 pl-2 mr-1" href={user.you_tube} rel="noopener noreferrer" target="_blank" >
+                                    <i className=" fab fa-youtube "> </i>
+                                </a>
+                            }
+                            {!user.you_tube &&
+                                <span className="link_stream m-0 pl-2 mr-1" href={user.you_tube} rel="noopener noreferrer" target="_blank" >
+                                    <i id="faNull" className=" fab fa-youtube "> </i>
+                                </span>
+                            }
 
-                            <a className="link_stream m-0 pl-2 mr-1" href={user.you_tube} rel="noopener noreferrer" target="_blank" >
-                                <i className=" fab fa-youtube "> </i>
-                            </a>
+
                         </div>
                     </div>
 
                     {/* need to add the real image from the DB */}
                     <div className="profil_photo">
-                        <button onClick={() => setFullScreenImage("open")} className="p-0 wrap_profil_image_button">
-                            <img src={"http://localhost:5000/" + user.profile_image} className="profil_img" alt="profile image" height="152px" width="152px" />
+                        <button className="p-0 wrap_profil_image_button">
+                            {/* <button onClick={() => setFullScreenImage("open")} className="p-0 wrap_profil_image_button"> */}
+                            <img src={wave} className="profil_img" alt="profile image" height="152px" width="152px" />
+                            {/* <img src={"http://localhost:5000/" + user.profile_image} className="profil_img" alt="profile image" height="152px" width="152px" /> */}
                         </button>
                     </div>
                 </div>

@@ -32,6 +32,10 @@
 .details_box:hover{
     /* box-shadow: 1px 1px 10px 1px black; */
 }
+#faNull{
+    font-size: 20px;
+    color: whitesmoke;
+}
 .fa-soundcloud{
     font-size: 20px;
     color: whitesmoke;
@@ -101,6 +105,9 @@
 
 
 @media only screen and (min-width: 600px) {
+    #faNull{
+        font-size: 30px;
+    }
     .fa-soundcloud{
         font-size: 30px;
     }

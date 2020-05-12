@@ -14,8 +14,8 @@ function StepThree({ onchange, dataAPI, onChangeAutoComplit, state, profession, 
                 <div className="position-relative">
                     <input key={index} type="text" name={singleState} placeholder={singleState} id={singleState} defaultValue={state[singleState].value}
                         className={"form-control mb-1"} onBlur={onchange} />
-                    <span className="must_form_input">*</span>
-                    <InputErrors errors={values[index]}> </InputErrors>
+                    {/* <span className="must_form_input">*</span> */}
+                    {/* <InputErrors errors={values[index]}> </InputErrors> */}
                 </div>
             )}
             {/* BOOKING */}

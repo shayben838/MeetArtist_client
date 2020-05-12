@@ -2,12 +2,15 @@ import React from "react";
 import "./user_header.css"
 import { Link } from "react-router-dom";
 
+import wave from "../../card_artist/wave.png"
+
 function UserHeader({ user, logOut }) {
     return (
         <div className="dropdown">
             <button className=" wrap_component_user_headear" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div className="wrap_image_header">
-                    <img src={"http://localhost:5000/" + user.profile_image} className="image_header" alt="..." />
+                    <img src={wave} className="image_header" alt="..." />
+                    {/* <img src={"http://localhost:5000/" + user.profile_image} className="image_header" alt="..." /> */}
                 </div>
                 <span className=" navbar-dark navbar-nav nav-link" style={{ textTransform: "capitalize" }}>{user.first_name}</span>
                 <i className="fas fa-chevron-down chevron-down"></i>

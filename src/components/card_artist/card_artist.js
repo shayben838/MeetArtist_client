@@ -2,7 +2,7 @@ import React from "react"
 import "./card_artist.css"
 import mainColor from "../../style_main/style"
 import { Link } from "react-router-dom";
-
+import wave from "./wave.png"
 
 
 function CardArtist({ styleCard, user, dataAPI }) {
@@ -12,7 +12,7 @@ function CardArtist({ styleCard, user, dataAPI }) {
     const genre = dataAPI.genre.result.filter(item => item.id + "" === user.genre_id)[0].name;
     const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id);
     // const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
-    console.log(sub_genre)
+    console.log(user)
 
 
 
@@ -21,7 +21,9 @@ function CardArtist({ styleCard, user, dataAPI }) {
             <div className={styleCard.inner} style={{ width: "15rem" }}>
                 <div>
                     {/* here need to change to the real image of the user */}
-                    <img src={"https://meetartistserver.herokuapp.com/" + user.profile_image} className="card-img-top" alt="..." height="200" width="100%" />
+
+                    {/* <img src={"https://meetartistserver.herokuapp.com/" + user.profile_image} className="card-img-top" alt="..." height="200" width="100%" /> */}
+                    <img src={wave} className="card-img-top" alt="..." height="200" width="100%" />
                 </div>
                 <div className="card-body">
 
@@ -34,12 +36,29 @@ function CardArtist({ styleCard, user, dataAPI }) {
                     </Link>
 
                     <div className="wrap_links">
-                        <a className="link_stream m-0 pl-2 mr-1" href={user.you_tube}>
-                            <i id="fyt" className="fab fa-youtube "> </i>
-                        </a>
-                        <a className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
-                            <i id="fsc" className="fab fa-soundcloud " ></i>
-                        </a>
+                        {user.you_tube &&
+                            <a className="link_stream m-0 pl-2 mr-1" href={user.you_tube}>
+                                <i id="fyt" className="fab fa-youtube "> </i>
+                            </a>
+                        }
+                        {!user.you_tube &&
+                            <span className="link_stream m-0 pl-2 mr-1" >
+                                <i id="fscNull" className="fab fa-youtube "> </i>
+                            </span>
+                        }
+
+
+                        {user.sound_cloud &&
+                            <a className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
+                                <i id="fsc" className="fab fa-soundcloud " ></i>
+                            </a>
+                        }
+                        {!user.sound_cloud &&
+                            <span className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
+                                <i id="fscNull" className="fab fa-soundcloud " ></i>
+                            </span>
+                        }
+
                     </div>
 
                 </div>

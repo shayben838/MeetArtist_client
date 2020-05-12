@@ -20,6 +20,14 @@ const addUser = async (form_data) => {
     const response = await fetcher.post(`/users/upload_user`, form_data);
     return response.data;
 };
+
+// ADD USER NO IMAGE
+const addUserNoImage = async (form_data) => {
+    const response = await fetcher.post(`/users/upload_user_no_image`, form_data);
+    return response.data;
+};
+
+
 // UPDATE USER
 const updateUser = async (data) => {
     const response = await fetcher.put(`/users/update_profile`, data);
@@ -98,6 +106,7 @@ export{
     PostLike,
     GetAllLikesByUser,
     removeLikeByUser,
-    GetAllLikesByUserLoged
+    GetAllLikesByUserLoged,
+    addUserNoImage
 
 }

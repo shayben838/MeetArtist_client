@@ -20,18 +20,21 @@ function useFetch() {
     return user
 }
 
-function WrapSingleArtist(data, dataAPI) {
+function WrapSingleArtist(data) {
+    // console.log("####### ",data,dataAPI)
+    console.log("!!!!!! ",data.dataAPI)
+    // const NewdataAPI =data.dataAPI[0]
     const userLoged = data.user
     const user = useFetch();
-
+    
     return (
         <div>
             {!user ? <Loading /> :
                 <div className="" style={{ minHeight: "calc(100vh - 207px)", marginTop: "3.5rem" }}>
-                    <HeaderImages userLoged={userLoged} user={user.data.result[0]} dataAPI={data.dataAPI} />
+                    <HeaderImages userLoged={userLoged} user={user.data.result[0]} dataAPI={data.dataAPI[0]} />
                     <div className="row m-0">
                         <div className="col-12 col-md-8">
-                            <MemberDescription dataAPI={data.dataAPI} user={user.data.result[0]} />
+                            <MemberDescription dataAPI={data.dataAPI[0]} user={user.data.result[0]} />
                         </div>
                         {userLoged.id === user.data.result[0].id &&
                             <div className="wrap_right_nav_bar col-12 col-md-4">
@@ -41,7 +44,7 @@ function WrapSingleArtist(data, dataAPI) {
 
                         {(!userLoged.id || (userLoged.id !== user.data.result[0].id)) &&
                             <div className="wrap_right_nav_bar col-12 col-md-4">
-                                <WrapLikesList whichUser={user.data.result[0]} userLoged={userLoged} title={`${user.data.result[0].display_name} Likes`} />
+                                <WrapLikesList dataAPI={[data.dataAPI]} whichUser={user.data.result[0]} userLoged={userLoged} title={`${user.data.result[0].display_name} Likes :`} />
                             </div>
                         }
 

@@ -4,7 +4,7 @@ import "./sign_up.css"
 import { changeStatusByParams } from "./change_status_func"
 import validate, { field } from "../validetor/validetor"
 import InnerWrapSignUP from "./inner_wrap_sign_up";
-import { addUser } from "../../back_end/api/api_action"
+import { addUserNoImage } from "../../back_end/api/api_action"
 
 class WrapSignUp extends React.Component {
     constructor(props) {
@@ -61,9 +61,11 @@ class WrapSignUp extends React.Component {
             result[prop] = this.state[prop].value;
             formData.append(prop, this.state[prop].value)
         }
-        result["main_image"] = this.state.main_image
-        formData.append("main_image", this.state.main_image)
-        const resultAPI = await addUser(formData);
+        // result["main_image"] = this.state.main_image
+        // formData.append("main_image", this.state.main_image)
+        const resultAPI = await addUserNoImage(result);
+        // const resultAPI = await addUser(formData);
+
         if (resultAPI.userId === "false") {
             this.props.history.push('/sign_up_error')
         }

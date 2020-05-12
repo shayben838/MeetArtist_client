@@ -27,7 +27,8 @@ function useFetch(userLoged, user) {
 
 
 
-function WrapLikesList({ title, whichUser, user }) {
+function WrapLikesList({ title, whichUser, user,dataAPI }) {
+    const newDataApi = dataAPI[0]
     const allLiks = useFetch(whichUser, user);
     let titleParam = title
     if (allLiks.userLikes) {
@@ -40,7 +41,7 @@ function WrapLikesList({ title, whichUser, user }) {
                     <h1 className="lead title_likes">{titleParam}</h1>
                     <ul className="m-0 p-0 ul_likes">
                         {allLiks.userLikes.allUsers.map((item, index) =>
-                            <SingleUserLike user={item} key={index} />
+                            <SingleUserLike user={item} key={index} dataAPI={newDataApi}/>
                             )
                         }
                     </ul>

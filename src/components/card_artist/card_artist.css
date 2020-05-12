@@ -14,6 +14,11 @@
 #fsc:hover{
     color: orangered;
 }
+#fscNull{
+    font-size: 30px;
+    color: #343a40;
+    transition: all.3s;
+}
 
 #fyt{
     font-size: 30px;
