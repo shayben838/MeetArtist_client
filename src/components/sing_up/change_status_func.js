@@ -19,10 +19,10 @@ export const changeStatusByParams = (status, operation, state) => {
 
 
     if (status === 3) {
-        if ((state.profession.value.length === 0 || state.studio.value.length === 0 || state.genre.value.length === 0 || state.sub_genre.value.length === 0 || state.booking.value.length === 0 )&& operation === "Next") {
+        if (( state.profession.value.length === 0 || state.studio.value.length === 0 || state.genre.value.length === 0 || state.sub_genre.value.length === 0 || state.booking.value.length === 0 )&& operation === "Next") {
             return status
         }
-        if (state.profession.errors.length !== 0 || state.studio.errors.length !== 0 || state.genre.errors.length !== 0 || state.sub_genre.errors.length !== 0 ||  state.booking.errors.length !== 0 ) {
+        if (state.sound_cloud.errors.length !== 0 || state.studio.errors.length !== 0 || state.genre.errors.length !== 0 || state.sub_genre.errors.length !== 0 ||  state.booking.errors.length !== 0 ) {
             return status
         }
     }

@@ -23,8 +23,8 @@ class WrapSignUp extends React.Component {
             genre: field({ name: 'genre', isRequired: true, minLength: 1 }),
             sub_genre: field({ name: 'sub_genre', isRequired: true, minLength: 1 }),
             booking: field({ name: 'booking', isRequired: true, minLength: 1 }),
-            sound_cloud: field({ name: 'sound_cloud', isRequired: true, minLength: 1, pattern: /^https?:\/\/(soundcloud\.com|snd\.sc)\/(.*)$/ }),
-            you_tube: field({ name: 'you_tube', isRequired: true, minLength: 1, pattern: /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/ }),
+            sound_cloud: field({ name: 'sound_cloud', isRequired: false, pattern: /^https?:\/\/(soundcloud\.com|snd\.sc)\/(.*)$/ }),
+            you_tube: field({ name: 'you_tube', isRequired: false,  pattern: /^(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+/ }),
             main_image: "",
             headline: field({ name: 'headline', isRequired: true, minLength: 1 }),
         };
