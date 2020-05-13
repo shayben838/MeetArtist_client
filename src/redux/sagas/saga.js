@@ -19,24 +19,53 @@ function* signInWorker(action) {
         // MANUAL LOG IN 
         else if (action.payLoad.e) {
             data = yield call(() => fetcher.post("/users/log_in", { email: action.payLoad.e, password: action.payLoad.p }))
+            let token = data.data.token;
+            let email = data.data.result[0].email
+            console.log(token,email)
+            // TOKEN COOKIE
+            // res.cookie("MeetArtist_user", JSON.stringify({token:token,email:result[0].email}), { maxAge: 1000 * 60 * 60 * 24 * 7 });
+
+
+
+            console.log(email, " DATA FROM THE SERVER : ", token)
+            // document.cookie = `TESTMeetArtist_user=${token};max-age=1000 * 60 * 60 * 24 * 7;"; path=/ `;
+            // document.cookie = `TESTMeetArtist_user_mail=${email};max-age=1000 * 60 * 60 * 24 * 7; path=/ `;
+            cookies.set('token', token, { expires: 7 });
+            cookies.set("id", email, { expires: 7 });
+            
+
+
+
+
             yield put({ type: "SIGN_IN_ASYNC_WORKER", payLoad: data.data.result[0] });
 
 
             action.payLoad.f("sucsses");
         }
         // IF COOKIES
-        else if (cookies.get('MeetArtist_user')) {
-            let id = JSON.parse(cookies.get('MeetArtist_user'));
-            const token = JSON.parse(cookies.get('MeetArtist_user'));
+        else if (cookies.get('token')) {
+            console.log("HAVE COOKIE!!!")
+            // else if (cookies.get('MeetArtist_user')) {
+
+
+
+            let id = cookies.get('id');
+            const token = cookies.get('token');
+            // let id = JSON.parse(cookies.get('id'));
+            // const token = JSON.parse(cookies.get('token'));
             data = yield call(() => fetcher.post("/users/cookie_log_in",
                 { email: id, redux: "redux" },
                 {
-                    headers: { 'authorization': `${token.token}` }
+                    headers: { 'authorization': `${token}` }
+                    // headers: { 'authorization': `${token.token}` }
                 }));
-                if(data.data.message === "auth failde"){
-                    document.cookie = "MeetArtist_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            if (data.data.message === "auth failde") {
+                // document.cookie = "MeetArtist_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                console.log("AUTH FAILDE")
+                cookies.remove('id');
+                cookies.remove('token');
 
-                }
+            }
             yield put({ type: "SIGN_IN_ASYNC_WORKER", payLoad: data.data.result[0] })
 
             // THE CODE DOWN IS BEFORE JWT
@@ -46,7 +75,8 @@ function* signInWorker(action) {
             // yield put({ type: "SIGN_IN_ASYNC_WORKER", payLoad: data.data.result[0] })
         }
     }
-    catch{
+    catch(error){
+        console.log("ER : ",error)
         action.payLoad.f("user_not_found");
     }
 }
