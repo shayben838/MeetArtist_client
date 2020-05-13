@@ -14,6 +14,16 @@ function* signInWorker(action) {
         if (action.payLoad.p === "not requierd") {
             data = yield call(() => fetcher.post("/users/log_in_with_facebook", { email: action.payLoad.e, password: action.payLoad.p }))
             yield put({ type: "SIGN_IN_ASYNC_WORKER", payLoad: data.data.result[0] });
+
+
+            let token = data.data.token;
+            let email = data.data.result[0].email
+
+            cookies.set('token', token, { expires: 7 });
+            cookies.set("id", email, { expires: 7 });
+
+
+
             action.payLoad.f("sucsses");
         }
         // MANUAL LOG IN 
@@ -21,13 +31,12 @@ function* signInWorker(action) {
             data = yield call(() => fetcher.post("/users/log_in", { email: action.payLoad.e, password: action.payLoad.p }))
             let token = data.data.token;
             let email = data.data.result[0].email
-            console.log(token,email)
+
             // TOKEN COOKIE
             // res.cookie("MeetArtist_user", JSON.stringify({token:token,email:result[0].email}), { maxAge: 1000 * 60 * 60 * 24 * 7 });
 
 
 
-            console.log(email, " DATA FROM THE SERVER : ", token)
             // document.cookie = `TESTMeetArtist_user=${token};max-age=1000 * 60 * 60 * 24 * 7;"; path=/ `;
             // document.cookie = `TESTMeetArtist_user_mail=${email};max-age=1000 * 60 * 60 * 24 * 7; path=/ `;
             cookies.set('token', token, { expires: 7 });
@@ -44,7 +53,7 @@ function* signInWorker(action) {
         }
         // IF COOKIES
         else if (cookies.get('token')) {
-            console.log("HAVE COOKIE!!!")
+
             // else if (cookies.get('MeetArtist_user')) {
 
 
@@ -61,7 +70,7 @@ function* signInWorker(action) {
                 }));
             if (data.data.message === "auth failde") {
                 // document.cookie = "MeetArtist_user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                console.log("AUTH FAILDE")
+
                 cookies.remove('id');
                 cookies.remove('token');
 

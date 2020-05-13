@@ -38,7 +38,7 @@ function WrapSingleArtist(data) {
                         </div>
                         {userLoged.id === user.data.result[0].id &&
                             <div className="wrap_right_nav_bar col-12 col-md-4">
-                                <WrapLikesList user={user.data.result[0]} whichUser={userLoged} userLoged={userLoged} title="Artists You Like" />
+                                <WrapLikesList dataAPI={[data.dataAPI]} user={user.data.result[0]} whichUser={userLoged} userLoged={userLoged} title="Artists You Like" />
                             </div>
                         }
 
