@@ -46,13 +46,15 @@ function HeaderImages({ user, userLoged, dataAPI }) {
     const like = async () => {
         const result = await PostLike({ user_id: user.id, from_user_id: userLoged.id });
         // change the reload by component will update || change state
-        window.location.reload();
+        
+        // window.location.reload();
 
     }
     const removeLike = async () => {
         const result = await removeLikeByUser(likes.matchLike[0].id);
         // change the reload by component will update || change state
-        window.location.reload();
+
+        // window.location.reload();
 
     }
     return (
