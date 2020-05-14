@@ -62,18 +62,12 @@ class LogIn extends React.Component {
                     {this.state.user === "Search" && <p>Connect To Data Base...</p>}
                     {this.state.user === "user_not_found" && <p>somthing wrong...</p>}
 
-
-                    {/* <div className="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me" /> Remember me 
-                        </label>
-                    </div> */}
                     <button onClick={this.handleSignIn} className="btn btn-lg btn-dark btn-block" type="submit">Sign in</button>
 
                     {/* FACEBOOK */}                    {/* GOOGLE */}
                     <div className="mt-3 d-flex justify-content-center">
-                        <Facebook handleSignInWithRestApi={this.handleSignInWithRestApi} />
-                        <Google handleSignInWithRestApi={this.handleSignInWithRestApi} />
+                        {/* <Facebook handleSignInWithRestApi={this.handleSignInWithRestApi} />
+                        <Google handleSignInWithRestApi={this.handleSignInWithRestApi} /> */}
 
                     </div>
 
