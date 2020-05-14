@@ -9,7 +9,6 @@ class Google extends React.Component {
     }
 
     responseGoogle = (response) => {
-        console.log(response.Qt.zu);
         this.props.handleSignInWithRestApi(response.Qt.zu)
 
     }

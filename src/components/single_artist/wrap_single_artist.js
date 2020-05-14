@@ -21,8 +21,6 @@ function useFetch() {
 }
 
 function WrapSingleArtist(data) {
-    // console.log("####### ",data,dataAPI)
-    console.log("!!!!!! ",data.dataAPI)
     // const NewdataAPI =data.dataAPI[0]
     const userLoged = data.user
     const user = useFetch();

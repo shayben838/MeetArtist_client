@@ -6,10 +6,6 @@ import SingleUserLike from "../single_artist/artist_likes_list/single_user_like"
 
 
 const UsersList = ({ users,setUsersList }) => {
-
-
-    console.log(users)
-
     return (
         <div className="">
             <div className="wrap_log_in " style={{ zIndex: 11 }}>

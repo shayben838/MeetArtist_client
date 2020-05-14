@@ -43,7 +43,6 @@ class LogIn extends React.Component {
     }
 
     chang_state_by_saga = (data = "") => {
-        console.log(data)
          setTimeout(() => { this.setState({ user: "user_not_found" }) }, 1000) 
         }
     render() {

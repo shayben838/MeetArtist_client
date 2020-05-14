@@ -12,7 +12,6 @@ function CardArtist({ styleCard, user, dataAPI }) {
     const genre = dataAPI.genre.result.filter(item => item.id + "" === user.genre_id)[0].name;
     const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id);
     // const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
-    console.log(user)
 
 
 

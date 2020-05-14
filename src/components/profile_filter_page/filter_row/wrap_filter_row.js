@@ -70,7 +70,6 @@ class FilterRow extends React.Component {
 
     render() {
         let dataAPI = this.props.dataAPI
-        console.log(this.state.usersFilterd)
         return (
             <div>
                 {!this.state.usersFilterd ? <Loading /> :

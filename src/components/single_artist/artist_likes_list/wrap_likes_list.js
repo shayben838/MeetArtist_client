@@ -28,7 +28,6 @@ function useFetch(userLoged, user) {
 
 
 function WrapLikesList({ title, whichUser, user,dataAPI }) {
-    console.log({ title, whichUser, user,dataAPI })
     const newDataApi = dataAPI[0]
     const allLiks = useFetch(whichUser, user);
     let titleParam = title

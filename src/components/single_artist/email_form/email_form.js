@@ -18,7 +18,6 @@ function EmailForm({ user, closeEmailForm, userLoged }) {
         const respons = await sendMail(Data);
         setEmailSend(respons.status)
         // alert(respons)
-        console.log(respons)
     }
     return (
         <div className="wrap_email_form ">

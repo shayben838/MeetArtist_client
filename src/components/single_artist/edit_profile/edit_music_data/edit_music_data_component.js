@@ -33,7 +33,6 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
 
 
 
-    console.log(dataAPI)
 
     let booking;
     let genre_id;

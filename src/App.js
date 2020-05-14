@@ -43,7 +43,6 @@ class App extends React.Component {
   }
   importDataAPI = async () => {
     const data = await importsMainAPI();
-    console.log("importsMainAPI : ",data)
     this.setState({
       dataAPI: data,
       dataApiStatus: false
