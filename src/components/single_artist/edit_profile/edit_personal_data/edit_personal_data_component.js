@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Redirect } from 'react-router';
+
 import "../wrap_edit_profile.css"
 import AutoComplit from "../../../sing_up/sign_up_all_steps/auto_complit";
 import InputErrors from "../../../validetor/input_errors"
@@ -24,7 +26,9 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
             }
             else {
                 // console.log(user.id)
-                alert("All The Changes Was Saved ")
+                alert("# All The Changes Was Saved ")
+                return <Redirect push to="/" />;
+
                 // window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
                 // alert("all the changes was saved")
                 // window.location.reload();
