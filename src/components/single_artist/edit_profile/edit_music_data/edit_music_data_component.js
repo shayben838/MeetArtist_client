@@ -8,6 +8,8 @@ import { updateUser } from "../../../../back_end/api/api_action"
 
 function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, changeStatus, state }) {
     const [loading, setLoading] = useState("");
+    const [changeData, setChangeData] = useState("")
+
     const temporeryStudioArr = [{ id: 1, name: "Home Studio" }, { id: 2, name: "Rent Studio" }, { id: 3, name: "Professional Studio" }]
     const temporeryBookingArr = [{ id: 1, name: "Have Booking" }, { id: 2, name: "Not Have Booking" }]
 
@@ -28,12 +30,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
             }
             else {
                 alert("All The Changes Was Saved ")
-                // window.location.replace(`https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`);
-
-                // window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
-
-                // window.location = "https://infallible-agnesi-f06595.netlify.app"
-                // window.location.reload();
+                setChangeData("close")
             }
         }
     };
@@ -52,6 +49,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
 
     return (
         <div className="wrap_edit_form">
+            {changeData && <Redirect to={`/singleArtist/${user.id}`} />}
 
             {loading ? <loading /> :
                 <div className="iner_edit_box">

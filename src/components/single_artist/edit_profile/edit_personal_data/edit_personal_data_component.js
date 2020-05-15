@@ -7,7 +7,7 @@ import { updateUser } from "../../../../back_end/api/api_action"
 
 function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, changeStatus, state }) {
     const [loading, setLoading] = useState("");
-    const[changeData,setChangeData] =useState("")
+    const [changeData, setChangeData] = useState("")
     const registerAPI = async () => {
         const ToCheck = [state.display_name, state.headline, state.professions, state.country_id, state.city_id];
         const ifNoErrors = ToCheck.filter(item => item.errors.length > 0).length;
@@ -24,12 +24,8 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
                 alert("error")
             }
             else {
-                // console.log(user.id)
-                alert("!!!!!All The Changes Was Saved ")
+                alert("All The Changes Was Saved ")
                 setChangeData("close")
-                // window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
-                // alert("all the changes was saved")
-                // window.location.reload();
             }
         }
     };
@@ -39,7 +35,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
 
     return (
         <div className="wrap_edit_form">
-                        {changeData && <Redirect to={`/singleArtist/${user.id}`} />}
+            {changeData && <Redirect to={`/singleArtist/${user.id}`} />}
 
             {loading ? <loading /> :
                 <div className="iner_edit_box">
