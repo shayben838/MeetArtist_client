@@ -2,24 +2,24 @@ import axios from "axios";
 
 
 // HEROKU
-// const fetcher = axios.create({
-//     baseURL: "https://meetartistserver.herokuapp.com",
-//     withCredentials: true
-// })
+const fetcher = axios.create({
+    baseURL: "https://meetartistserver.herokuapp.com",
+    withCredentials: true
+})
 
-// export default fetcher;
+export default fetcher;
 
 
 
 
 
 // LOCAL
-const fetcher = axios.create({
-    baseURL: "http://localhost:5000",
-    withCredentials: true
-})
+// const fetcher = axios.create({
+//     baseURL: "http://localhost:5000",
+//     withCredentials: true
+// })
 
-export default fetcher;
+// export default fetcher;
 
 
 
