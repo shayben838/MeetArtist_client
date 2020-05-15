@@ -25,7 +25,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
             else {
                 // console.log(user.id)
                 alert("All The Changes Was Saved ")
-                window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
+                // window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
                 // alert("all the changes was saved")
                 // window.location.reload();
             }
