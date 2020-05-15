@@ -36,20 +36,23 @@ function EmailForm({ user, closeEmailForm, userLoged }) {
                                     style={{ resize: "vertical" }}>
                                 </textarea>
                                 <div className="">
-                                    <div className=" links_email">
-                                        <span className="lead">your chaneles: &nbsp;</span>
-                                        {user.sound_cloud &&
-                                            <a className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
-                                                <i id="icon_email_links" className=" fab fa-soundcloud  " ></i>
-                                            </a>
-                                        }
-                                        {user.you_tube &&
-                                            <a className="link_stream m-0 pl-2 mr-1" href={user.you_tube} target="_blank" rel="noopener noreferrer" >
-                                                <i id="icon_email_links" className=" fab fa-youtube "> </i>
-                                            </a>
-                                        }
-                                        <p className="lead"> Also added to the email </p>
-                                    </div>
+                                    {(user.sound_cloud || user.you_tube) &&
+                                        <div className=" links_email">
+                                            <span className="lead">your chaneles: &nbsp;</span>
+                                            {user.sound_cloud &&
+                                                <a className=" m-0 link_stream mr-1" target="_blank" rel="noopener noreferrer" href={user.sound_cloud}>
+                                                    <i id="icon_email_links" className=" fab fa-soundcloud  " ></i>
+                                                </a>
+                                            }
+                                            {user.you_tube &&
+                                                <a className="link_stream m-0 pl-2 mr-1" href={user.you_tube} target="_blank" rel="noopener noreferrer" >
+                                                    <i id="icon_email_links" className=" fab fa-youtube "> </i>
+                                                </a>
+                                            }
+                                            <p className="lead"> Also added to the email </p>
+                                        </div>
+                                    }
+
                                 </div>
                             </form>
                         </div>
@@ -68,10 +71,10 @@ function EmailForm({ user, closeEmailForm, userLoged }) {
                 <Loading />
             }
             {emailSend === "success" &&
-                <EmailSucsses closeEmailForm={closeEmailForm} message ={"Email Send Successfully."}/>
+                <EmailSucsses closeEmailForm={closeEmailForm} message={"Email Send Successfully."} />
             }
-             {emailSend === "false" &&
-                <EmailSucsses closeEmailForm={closeEmailForm} message ={"Somthing Went Wrong Please Try Later."}/>
+            {emailSend === "false" &&
+                <EmailSucsses closeEmailForm={closeEmailForm} message={"Somthing Went Wrong Please Try Later."} />
             }
         </div>
     )

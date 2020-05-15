@@ -39,21 +39,28 @@ function HeaderImages({ user, userLoged, dataAPI }) {
     const [emaillogged, setEmaillogged] = useState("");
     const [emailForm, setEmailForm] = useState("");
     const closeEmailForm = () => { setEmailForm("") }
-    const [fullScreenImage, setFullScreenImage] = useState("");
+    const [fullScreenImage, setFullScreenImage] = useState("1");
+    const [test,setTest] = useState("");
+
     // USE FETCH
-    const likes = useFetch(userLoged, user);
+    let likes = useFetch(userLoged, user);
 
     const like = async () => {
         const result = await PostLike({ user_id: user.id, from_user_id: userLoged.id });
+        likes.haveLike="true"
+        setTest("true")
+
         // change the reload by component will update || change state
-        
         // window.location.reload();
 
     }
     const removeLike = async () => {
         const result = await removeLikeByUser(likes.matchLike[0].id);
-        // change the reload by component will update || change state
+        likes.haveLike="false"
+        setTest("false")
 
+
+        // change the reload by component will update || change state
         // window.location.reload();
 
     }
@@ -138,9 +145,9 @@ function HeaderImages({ user, userLoged, dataAPI }) {
                 </div>
             }
 
-            {fullScreenImage &&
+            {/* {fullScreenImage &&
                 <ProfileImageFullScreen src={"http://localhost:5000/" + user.profile_image} setFullScreenImage={setFullScreenImage} />
-            }
+            } */}
             {emaillogged &&
                 <PermissionEmail setEmaillogged={setEmaillogged} />
             }

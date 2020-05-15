@@ -88,7 +88,7 @@ class App extends React.Component {
                   <WrapSearchPage dataAPI={this.state.dataAPI} />
                 </Route>
 
-                <Route exact path="/SignUp">
+                <Route  path="/SignUp">
                   <WrapSignUp dataAPI={this.state.dataAPI} formType="signUp" />
                 </Route>
 
