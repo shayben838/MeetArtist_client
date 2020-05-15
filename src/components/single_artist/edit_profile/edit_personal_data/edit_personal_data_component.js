@@ -25,7 +25,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
             }
             else {
                 // console.log(user.id)
-                alert("$ $ $ $ $ All The Changes Was Saved ")
+                alert("!!!!!All The Changes Was Saved ")
                 setChangeData("close")
                 // window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
                 // alert("all the changes was saved")
@@ -39,7 +39,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
 
     return (
         <div className="wrap_edit_form">
-                        {changeData && <Redirect to="/" />}
+                        {changeData && <Redirect to={`/singleArtist/${user.id}`} />}
 
             {loading ? <loading /> :
                 <div className="iner_edit_box">
