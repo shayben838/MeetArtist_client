@@ -26,7 +26,8 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
             }
             else {
                 alert("all the changes was saved")
-                window.location.reload();
+                window.location = "https://infallible-agnesi-f06595.netlify.app"
+                // window.location.reload();
             }
         }
     };
