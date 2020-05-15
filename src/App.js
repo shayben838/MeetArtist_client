@@ -12,7 +12,6 @@ import {
 import { withRouter } from 'react-router';
 
 
-
 import WrapSearchPage from './components/profile_filter_page/wrap_search_page';
 import WrapSingleArtist from './components/single_artist/wrap_single_artist';
 import WrapSignUp from './components/sing_up/wrap_sign_up';
@@ -37,6 +36,7 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
+    console.log(process.env.SECRET_KEY)
     this.props.loggedInAsync();
     this.importDataAPI();
     
