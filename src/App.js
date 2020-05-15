@@ -92,7 +92,7 @@ class App extends React.Component {
                   <WrapSignUp dataAPI={this.state.dataAPI} formType="signUp" />
                 </Route>
 
-                <Route exact path={"/singleArtist/:id"}
+                <Route  path={"/singleArtist/:id"}
                   render={(props) => <WrapSingleArtist key={Math.random()} {...props} dataAPI={[this.state.dataAPI]} isAuthed={true} />}
                 />
 
