@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router";
 import "../wrap_edit_profile.css"
 import AutoComplit from "../../../sing_up/sign_up_all_steps/auto_complit";
 import InputErrors from "../../../validetor/input_errors"
@@ -7,7 +7,7 @@ import { updateUser } from "../../../../back_end/api/api_action"
 
 function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, changeStatus, state }) {
     const [loading, setLoading] = useState("");
-
+    const[changeData,setChangeData] =useState("")
     const registerAPI = async () => {
         const ToCheck = [state.display_name, state.headline, state.professions, state.country_id, state.city_id];
         const ifNoErrors = ToCheck.filter(item => item.errors.length > 0).length;
@@ -25,9 +25,8 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
             }
             else {
                 // console.log(user.id)
-                alert("we All The Changes Was Saved ")
-                return <Redirect push to="/why?" />;
-
+                alert("$ $ $ $ $ All The Changes Was Saved ")
+                setChangeData("close")
                 // window.location.href = `https://infallible-agnesi-f06595.netlify.app/singleArtist/${user.id}`;
                 // alert("all the changes was saved")
                 // window.location.reload();
@@ -40,6 +39,8 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
 
     return (
         <div className="wrap_edit_form">
+                        {changeData && <Redirect to="/" />}
+
             {loading ? <loading /> :
                 <div className="iner_edit_box">
                     <h1 className="title lead p-2">Edit Personal Data</h1>

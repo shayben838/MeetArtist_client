@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Redirect } from "react-router";
+
 import "../wrap_edit_profile.css"
 import AutoComplit from "../../../sing_up/sign_up_all_steps/auto_complit";
 import InputErrors from "../../../validetor/input_errors"
@@ -50,6 +52,7 @@ function EditPersonalData({ user, dataAPI, onchange, onChangeAutoComplit, change
 
     return (
         <div className="wrap_edit_form">
+
             {loading ? <loading /> :
                 <div className="iner_edit_box">
                     <h1 className="title lead p-2">Edit Profession </h1>
