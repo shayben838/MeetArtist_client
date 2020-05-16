@@ -77,15 +77,19 @@ class FilterRow extends React.Component {
                         <div className=" " >
                             <InnerFilterRow resetFilter={this.resetFilter} onClicFilter={this.onClicFilter} usersFilterd={this.state.usersFilterd} dataAPI={dataAPI} wrapState={this.state} />
                         </div>
+                        <div className="container m-0  pt-3  pl-3 pl-md-5">
+                            <p className="result_search lead"><i className="fas fa-search mr-1"> </i>{this.state.usersFilterd.length} Results found</p>
+                        </div>
+
                         {this.state.usersFilterd.length > 0 &&
                             <div >
                                 <GalleryProfil users={this.state.usersFilterd} dataAPI={dataAPI} />
                             </div>
                         }
                         {this.state.usersFilterd.length === 0 &&
-                        <div>
-                           <NoResult/>
-                        </div>
+                            <div>
+                                <NoResult />
+                            </div>
                         }
                     </div>
                 }

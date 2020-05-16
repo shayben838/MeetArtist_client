@@ -1,0 +1,14 @@
+.wrap_footer{
+    color: whitesmoke;
+    font-size: 12px;
+    padding-top: 10px;
+}
+.fa-linkedin_shay{
+    margin-top: 5px;
+    color: whitesmoke;
+    font-size: 25px;
+    transition: all.3s;
+}
+.fa-linkedin_shay:hover{
+    color: chartreuse;
+}

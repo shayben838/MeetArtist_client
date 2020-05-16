@@ -6,13 +6,28 @@
 
 }
 .firstImage{background-image: url("../images/first.jpg");
+    filter: brightness(50%);
+
 }
 .secondImage{background-image: url("../images/second.png");
+    filter: brightness(50%);
+
 }
 .thirdImage{background-image: url("../images/third.jpg");
+    filter: brightness(50%);
+
 }
 
 
 .carousel-indicators{
     z-index: 9;
+}
+.click_here{
+    color: #343a40;
+    transition: all .3s;
+}
+.click_here:hover{
+    color: #343a40;
+    text-decoration: none;
+    letter-spacing: .1rem;
 }

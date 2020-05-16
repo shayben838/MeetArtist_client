@@ -21,7 +21,9 @@ function WrapSearchPage({dataAPI}) {
             {!users ? <Loading /> :
 
                 <div style={{ marginTop: "3.5rem", minHeight: "calc(100vh - 207px)" }}>
+                    
                     <FilterRow dataAPI={dataAPI} />
+                    
                 </div>
             }
         </div>

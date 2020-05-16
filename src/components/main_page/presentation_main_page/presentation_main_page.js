@@ -2,8 +2,8 @@ import React from "react"
 import PresentationImage from "./presentation_image"
 import PresentationText from "./presentation_text"
 
-const TextPresentationTop = {firstHeading:"TOP First featurette heading.", textMuted:"TOP It'll blow your mind.",lead:"BOTTOM Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo." }
-const TextPresentationBottom = {firstHeading:"BOTTOM First featurette heading.", textMuted:"BOTTOM It'll blow your mind.",lead:"BOTTOM Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo." }
+const TextPresentationTop = {firstHeading:"Meet Artist.", textMuted:"The place where musical collaborations are created.",lead:"Sign up today and connect to thousands of producers and the people behind the Music industry . With the help of a special filter engine you have the ability to search for people by means of significant parameters." }
+const TextPresentationBottom = {firstHeading:"Meet Artist.", textMuted:"Your place to ask professional questions about your production.",lead:"On our website you can send messages to people about your questions. You can find artists close to  your live area by our filtration system and create music with them TODAY! " }
 
 
 function Presentation({ ImagePosition }) {

@@ -65,11 +65,11 @@ function Header({ user, logOut, dataAPI }) {
                         <Link to={"/search"} className="headers_link">
                             <li className="nav-link" >All Artist</li>
                         </Link>
-                        {user&&
+                        {/* {user&&
                         <Link to="/chat" className="headers_link">
                             <li className="nav-link" >Chat</li>
                         </Link>
-                        }
+                        } */}
 
 
 
