@@ -3,8 +3,8 @@ import { Redirect } from "react-router";
 import { connect } from "react-redux"
 import { logIn } from "../../redux/actions/index_actions"
 import "./log_in.css"
-import Facebook from "./log_in_with_facebook/facebook_login";
-import Google from "./log_in_with_google/log_in_with_google";
+// import Facebook from "./log_in_with_facebook/facebook_login";
+// import Google from "./log_in_with_google/log_in_with_google";
 
 
 class LogIn extends React.Component {

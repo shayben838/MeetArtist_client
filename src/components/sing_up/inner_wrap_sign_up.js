@@ -44,7 +44,7 @@ function InnerWrapSignUP({ dataAPI, onFilechange, onchange, state, changeStatus,
                             <button className="button_sign_up" type="button" id="prevBtn" onClick={() => changeStatus("Previous")}>
                                 <i className="fas fa-backward"></i>
                             </button>
-                            {state.status != 6 &&
+                            {state.status !== 6 &&
 
                                 <button className="button_sign_up" type="button" id="nextBtn" onClick={() => changeStatus("Next")}>
                                     <i className="fas fa-forward"></i>

@@ -16,7 +16,9 @@ function useFetch() {
         const user = await getSingleArtist(id);
         await setUser(user);
     }
-    useEffect(() => { importUser() }, [])
+    useEffect(() => { 
+        importUser() 
+    }, [])
     return user
 }
 

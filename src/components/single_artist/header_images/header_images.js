@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import coverImage from "../images/coverImage.jfif"
 import "../wrap_single_artist.css"
 import WrapEmailForm from "../email_form/wrap_email_form";
-import ProfileImageFullScreen from "./profile_image_full_screen";
 import PermissionEmail from "../../permission/permission";
 import WrapEditProfile from "../edit_profile/wrap_edit_profile";
 import { PostLike } from "../../../back_end/api/api_action";
@@ -39,14 +38,13 @@ function HeaderImages({ user, userLoged, dataAPI }) {
     const [emaillogged, setEmaillogged] = useState("");
     const [emailForm, setEmailForm] = useState("");
     const closeEmailForm = () => { setEmailForm("") }
-    const [fullScreenImage, setFullScreenImage] = useState("1");
     const [test,setTest] = useState("");
 
     // USE FETCH
     let likes = useFetch(userLoged, user);
 
     const like = async () => {
-        const result = await PostLike({ user_id: user.id, from_user_id: userLoged.id });
+        await PostLike({ user_id: user.id, from_user_id: userLoged.id });
         likes.haveLike="true"
         setTest("true")
 
@@ -55,7 +53,7 @@ function HeaderImages({ user, userLoged, dataAPI }) {
 
     }
     const removeLike = async () => {
-        const result = await removeLikeByUser(likes.matchLike[0].id);
+        await removeLikeByUser(likes.matchLike[0].id);
         likes.haveLike="false"
         setTest("false")
 
@@ -71,7 +69,7 @@ function HeaderImages({ user, userLoged, dataAPI }) {
                 <div >
                     <div style={{ height: "120px", width: "100%" }}>
 
-                        <img src={coverImage} className="cover_image" alt="profile image" height="100%" width="100%" />
+                        <img src={coverImage} className="cover_image" alt="profile " height="100%" width="100%" />
 
                         <div className="wrap_links_cover_image d-flex">
                             {(userLoged.id !== user.id) &&
@@ -120,7 +118,7 @@ function HeaderImages({ user, userLoged, dataAPI }) {
                     <div className="profil_photo">
                         <button className="p-0 wrap_profil_image_button">
                             {/* <button onClick={() => setFullScreenImage("open")} className="p-0 wrap_profil_image_button"> */}
-                            <img src={wave} className="profil_img" alt="profile image" height="152px" width="152px" />
+                            <img src={wave} className="profil_img" alt="profile " height="152px" width="152px" />
                             {/* <img src={"http://localhost:5000/" + user.profile_image} className="profil_img" alt="profile image" height="152px" width="152px" /> */}
                         </button>
                     </div>

@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./wrap_likes_list.css"
+import "./wrap_likes_list.css";
 import { GetAllLikesByUser } from "../../../back_end/api/api_action";
-import { GetAllLikesByUserLoged } from "../../../back_end/api/api_action";
 import SingleUserLike from "./single_user_like";
-
-{/* <WrapLikesList whichUser={user.data.result[0]} 
-userLoged={userLoged} title={`${user.data.result[0].display_name} Likes`} /> */}
-
 
 function useFetch(userLoged, user) {
     const [userLikes, setUserLikes] = useState("");

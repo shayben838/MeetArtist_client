@@ -1,8 +1,6 @@
 import React from "react";
-import mainColor from "../../style_main/style"
 import "./wrap_single_artist.css"
 import SingleDescription from "./single_description";
-import WrapEditProfile from "./edit_profile/wrap_edit_profile";
 
 function MemberDescription({ user, dataAPI }) {
     const temporeryStudioArr = [{ id: 1, name: "Home Studio" }, { id: 2, name: "Rent Studio" }, { id: 3, name: "Professional Studio" }]
@@ -13,8 +11,6 @@ function MemberDescription({ user, dataAPI }) {
     const city = dataAPI.cities.result.filter(item => item.id === user.city_id)[0].name;
     const genre = dataAPI.genre.result.filter(item => item.id + "" === user.genre_id)[0].name;
     const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
-
-    // const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
 
     const booking = temporeryBookingArr.filter(item => item.id + "" === user.booking)[0].name
     const studio = temporeryStudioArr.filter(item => item.id + "" === user.studio)[0].name

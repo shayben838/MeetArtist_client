@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from "react-redux"
 import Header from './components/header/header';
 import MainPage from './components/main_page/main_page';
@@ -9,7 +9,6 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
-import { withRouter } from 'react-router';
 
 
 import WrapSearchPage from './components/profile_filter_page/wrap_search_page';
@@ -22,7 +21,6 @@ import { importsMainAPI } from "./back_end/api/App_imports_first_mount"
 import Loading from './components/loading/loading';
 import SignUpError from './components/sing_up/sign_up_error_sucsses/sign_up_error';
 import PageNotFound from './components/page_not_found/page_not_found';
-import Intro from './components/chat/intro';
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +34,6 @@ class App extends React.Component {
   }
 
   componentDidMount = () => {
-    console.log(process.env.SECRET_KEY)
     this.props.loggedInAsync();
     this.importDataAPI();
     

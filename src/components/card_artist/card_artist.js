@@ -8,13 +8,7 @@ import wave from "./wave.png"
 function CardArtist({ styleCard, user, dataAPI }) {
     const profession = dataAPI.profession.result.filter(item => item.id === user.professions)[0].name;
     const country = dataAPI.countries.result.filter(item => item.id === user.country_id)[0].name.toUpperCase();
-    const city = dataAPI.cities.result.filter(item => item.id === user.city_id)[0].name;
     const genre = dataAPI.genre.result.filter(item => item.id + "" === user.genre_id)[0].name;
-    const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id);
-    // const sub_genre = dataAPI.sub_genre.result.filter(item => item.id + "" === user.sub_genre_id)[0].sub_name;
-
-
-
     return (
         <div className={styleCard.wrap} style={{ marginTop: "30px" }}>
             <div className={styleCard.inner} style={{ width: "15rem" }}>

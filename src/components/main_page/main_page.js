@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import CaruselMainPage from "./carousel_main_page/carusel_main_page"
 import GalleryMainPage from "./gallery_main_page/gallery_main_page";
 import Presentation from "./presentation_main_page/presentation_main_page";
-import { getAllArtist } from "../../back_end/api/api_action"
 import Loading from "../loading/loading";
 
 
