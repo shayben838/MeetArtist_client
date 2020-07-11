@@ -1,17 +1,12 @@
 import axios from "axios";
 
-
 // HEROKU
 const fetcher = axios.create({
-    baseURL: "https://meetartistserver.herokuapp.com",
-    withCredentials: true
-})
+  baseURL: "https://meetartistserver.herokuapp.com",
+  withCredentials: true,
+});
 
-export default fetcher;
-
-
-
-
+// export default fetcher;
 
 // LOCAL
 // const fetcher = axios.create({
@@ -19,24 +14,18 @@ export default fetcher;
 //     withCredentials: true
 // })
 
-// export default fetcher;
-
-
-
-
-
-
+export default fetcher;
 
 const fetcherCookies = axios.create({
-    // const fetcherCookies = (token)=>axios.create({
-    // method:"post",
-    baseURL: "https://meetartistserver.herokuapp.com",
-    withCredentials: true,
+  // const fetcherCookies = (token)=>axios.create({
+  // method:"post",
+  baseURL: "https://meetartistserver.herokuapp.com",
+  withCredentials: true,
 
-    // headers:{
-    //     'Authorization': `Bearer ${token}`
+  // headers:{
+  //     'Authorization': `Bearer ${token}`
 
-    // }
-})
-export  {fetcherCookies};
+  // }
+});
+export { fetcherCookies };
 // axios({ method: 'POST', url: 'you http api here', headers: {autorizacion: localStorage.token}, data: { user: 'name' } })

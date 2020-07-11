@@ -21,6 +21,7 @@ import { importsMainAPI } from "./back_end/api/App_imports_first_mount"
 import Loading from './components/loading/loading';
 import SignUpError from './components/sing_up/sign_up_error_sucsses/sign_up_error';
 import PageNotFound from './components/page_not_found/page_not_found';
+import LoadingHome from './components/loading/loading_home';
 
 class App extends React.Component {
   constructor(props) {
@@ -59,7 +60,7 @@ class App extends React.Component {
 
       <div>
         <Router>
-          {this.state.dataApiStatus ? <Loading /> :
+          {this.state.dataApiStatus ? <LoadingHome /> :
             <div className="App">
               {this.state.redirectLogOut && <Redirect to="/" />}
 

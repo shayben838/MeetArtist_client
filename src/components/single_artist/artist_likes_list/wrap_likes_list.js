@@ -5,22 +5,45 @@ import SingleUserLike from "./single_user_like";
 
 function useFetch(userLoged, user) {
     const [userLikes, setUserLikes] = useState("");
-    const importUser = async () => {
+
+    useEffect(() => { 
+        const importUser = async () => {
         
-        let userLikes;
-        if (userLoged === false) {
-             userLikes = await GetAllLikesByUser(user.id,"WRAP Like list");
+            let userLikes;
+            if (userLoged === false) {
+                 userLikes = await GetAllLikesByUser(user.id,"WRAP Like list");
+            }
+            else {
+                 userLikes = await GetAllLikesByUser(userLoged.id);
+            }
+            setUserLikes({ userLikes, })
         }
-        else {
-             userLikes = await GetAllLikesByUser(userLoged.id);
-        }
-        setUserLikes({ userLikes, })
-    }
-    useEffect(() => { importUser() }, [])
+
+        importUser() 
+    }, [userLoged, user])
     return userLikes
 }
 
-
+// dont remove the code below:
+// function useFetch(userLoged, user) {
+//     const [userLikes, setUserLikes] = useState("");
+    
+//     const importUser = async () => {
+        
+//         let userLikes;
+//         if (userLoged === false) {
+//              userLikes = await GetAllLikesByUser(user.id,"WRAP Like list");
+//         }
+//         else {
+//              userLikes = await GetAllLikesByUser(userLoged.id);
+//         }
+//         setUserLikes({ userLikes, })
+//     }
+//     useEffect(() => { 
+//         importUser() 
+//     }, [userLoged, user])
+//     return userLikes
+// }
 
 function WrapLikesList({ title, whichUser, user,dataAPI }) {
     const newDataApi = dataAPI[0]

@@ -1,10 +1,19 @@
+.loader_text{
+    color: white;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 30px;
+    
+}
 .wrap_loader{
     position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
-
+    overflow-y: hidden;
+    overflow-x: hidden;
+    
 }
 .loader {
     font-size: 90px;

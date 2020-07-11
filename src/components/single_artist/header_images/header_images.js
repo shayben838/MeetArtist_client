@@ -13,25 +13,62 @@ import wave from "../../card_artist/wave.png"
 function useFetch(userLoged, user) {
     const [userLikes, setUserLikes] = useState("");
 
-    const importUser = async () => {
-        let userLikes
-        if (userLoged === false) {
-            userLikes = await GetAllLikesByUserLoged(user.id, "headear images");
+    
+    useEffect(() => { 
+        const importUser = async () => {
+            let userLikes
+            if (userLoged === false) {
+                userLikes = await GetAllLikesByUserLoged(user.id, "headear images");
+            }
+            else {
+                userLikes = await GetAllLikesByUser(userLoged.id);
+            }
+            const matchLike = userLikes.result.filter((item) => item.user_id === user.id);
+            let haveLike;
+            if (matchLike) {
+                if (matchLike.length > 0) { haveLike = "true" }
+                else { haveLike = "false" }
+            }
+            setUserLikes({ userLikes, matchLike, haveLike: haveLike })
         }
-        else {
-            userLikes = await GetAllLikesByUser(userLoged.id);
-        }
-        const matchLike = userLikes.result.filter((item) => item.user_id === user.id);
-        let haveLike;
-        if (matchLike) {
-            if (matchLike.length > 0) { haveLike = "true" }
-            else { haveLike = "false" }
-        }
-        setUserLikes({ userLikes, matchLike, haveLike: haveLike })
-    }
-    useEffect(() => { importUser() }, [userLoged.id])
+
+
+
+
+
+
+        importUser() 
+    }, [userLoged.id,userLoged, user])
     return userLikes
 }
+
+// dont toche the code below:
+// function useFetch(userLoged, user) {
+//     const [userLikes, setUserLikes] = useState("");
+
+//     const importUser = async () => {
+//         let userLikes
+//         if (userLoged === false) {
+//             userLikes = await GetAllLikesByUserLoged(user.id, "headear images");
+//         }
+//         else {
+//             userLikes = await GetAllLikesByUser(userLoged.id);
+//         }
+//         const matchLike = userLikes.result.filter((item) => item.user_id === user.id);
+//         let haveLike;
+//         if (matchLike) {
+//             if (matchLike.length > 0) { haveLike = "true" }
+//             else { haveLike = "false" }
+//         }
+//         setUserLikes({ userLikes, matchLike, haveLike: haveLike })
+//     }
+//     useEffect(() => { 
+//         importUser() 
+//     }, [userLoged.id])
+//     return userLikes
+// }
+
+
 
 function HeaderImages({ user, userLoged, dataAPI }) {
     // INIT

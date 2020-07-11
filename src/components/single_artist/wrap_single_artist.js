@@ -9,6 +9,8 @@ import Loading from "../loading/loading";
 import WrapLikesList from "./artist_likes_list/wrap_likes_list";
 
 
+
+// do not toche the code below:
 function useFetch() {
     const [user, setUser] = useState("");
     let { id } = useParams();
@@ -21,6 +23,7 @@ function useFetch() {
     }, [])
     return user
 }
+
 
 function WrapSingleArtist(data) {
     // const NewdataAPI =data.dataAPI[0]
