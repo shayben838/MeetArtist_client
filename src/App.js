@@ -53,6 +53,7 @@ class App extends React.Component {
   };
 
   render() {
+    console.log("ssdsdsd");
     return (
       <div>
         <Router>
