@@ -101,9 +101,10 @@ class App extends React.Component {
                   <MainPage dataAPI={this.state.dataAPI} />
                 </Route>
                 {/* 404 */}
-                <Route exact path='*'>
+                {/* TEST */}
+                {/* <Route exact path='*'>
                   <PageNotFound />
-                </Route>
+                </Route> */}
               </Switch>
 
               <Footer />
