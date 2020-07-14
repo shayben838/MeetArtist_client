@@ -102,9 +102,9 @@ class App extends React.Component {
                 </Route>
                 {/* 404 */}
                 {/* TEST */}
-                <Route exact path='*'>
+                {/* <Route exact path='*'>
                   <PageNotFound />
-                </Route>
+                </Route> */}
               </Switch>
 
               <Footer />
