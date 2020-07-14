@@ -18,7 +18,7 @@ import { logIn } from "../src/redux/actions/index_actions";
 import { loggedOut } from "../src/redux/actions/index_actions";
 import { initImportsMainAPI } from "./back_end/api/App_imports_first_mount";
 import SignUpError from "./components/sing_up/sign_up_error_sucsses/sign_up_error";
-import PageNotFound from "./components/page_not_found/page_not_found";
+// import PageNotFound from "./components/page_not_found/page_not_found";
 import LoadingHome from "./components/loading/loading_home";
 
 class App extends React.Component {
