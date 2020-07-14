@@ -10,7 +10,8 @@ function Header({ user, logOut, dataAPI }) {
   let history = useHistory();
 
   // INIT
-  let dataArr = dataAPI.users.data.result;
+  let dataArr = dataAPI.users;
+  // let dataArr = dataAPI.users.data.result;
   let option = "display_name";
   let buttonName = "userHeadear";
 

@@ -16,7 +16,7 @@ import WrapSignUp from "./components/sing_up/wrap_sign_up";
 import LogIn from "./components/log_in/log_in";
 import { logIn } from "../src/redux/actions/index_actions";
 import { loggedOut } from "../src/redux/actions/index_actions";
-import { importsMainAPI } from "./back_end/api/App_imports_first_mount";
+import { initImportsMainAPI } from "./back_end/api/App_imports_first_mount";
 import SignUpError from "./components/sing_up/sign_up_error_sucsses/sign_up_error";
 import PageNotFound from "./components/page_not_found/page_not_found";
 import LoadingHome from "./components/loading/loading_home";
@@ -37,9 +37,9 @@ class App extends React.Component {
     this.importDataAPI();
   };
   importDataAPI = async () => {
-    const data = await importsMainAPI();
+    const init = await initImportsMainAPI();
     this.setState({
-      dataAPI: data,
+      dataAPI: init,
       dataApiStatus: false,
     });
   };
@@ -69,13 +69,6 @@ class App extends React.Component {
                 dataAPI={this.state.dataAPI}
               />
               <Switch>
-                {this.props.user && (
-                  <Route exact path='/chat'>
-                    {/* <Intro user={this.props.user} /> */}
-                    <h1>chat</h1>
-                  </Route>
-                )}
-
                 <Route exact path='/sign_up_error'>
                   <SignUpError />
                 </Route>

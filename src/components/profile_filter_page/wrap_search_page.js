@@ -1,22 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Loading from "../loading/loading";
-import { getAllArtist } from "../../back_end/api/api_action";
 import FilterRow from "./filter_row/wrap_filter_row";
 
-function useFetch() {
-  const [users, setUsers] = useState("");
-  const importUsers = async () => {
-    const users = await getAllArtist();
-    setUsers(users);
-  };
-  useEffect(() => {
-    importUsers();
-  }, []);
-  return users;
-}
-
 function WrapSearchPage({ dataAPI }) {
-  const users = useFetch();
+  const users = dataAPI.users;
   return (
     <div>
       {!users ? (

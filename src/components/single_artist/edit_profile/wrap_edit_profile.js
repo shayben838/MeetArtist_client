@@ -97,7 +97,7 @@ class WrapEditProfile extends React.Component {
             onClick={() => this.changeStatus("formStatus", "open")}
             className='pencil_edit_button '
           >
-            <i class=' fas fa-pencil-alt'></i>
+            <i className=' fas fa-pencil-alt'></i>
           </button>
         </div>
 

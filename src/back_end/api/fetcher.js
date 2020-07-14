@@ -6,8 +6,6 @@ const fetcher = axios.create({
   withCredentials: true,
 });
 
-// export default fetcher;
-
 // LOCAL
 // const fetcher = axios.create({
 //   baseURL: "http://localhost:5000",
