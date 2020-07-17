@@ -6,7 +6,6 @@ import Loading from "../loading/loading";
 
 function MainPage({ dataAPI }) {
   let users = dataAPI.users;
-  // let users = dataAPI.users.data.result
   return (
     <div>
       {!users ? (

@@ -11,7 +11,6 @@ function Header({ user, logOut, dataAPI }) {
 
   // INIT
   let dataArr = dataAPI.users;
-  // let dataArr = dataAPI.users.data.result;
   let option = "display_name";
   let buttonName = "userHeadear";
 
