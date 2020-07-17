@@ -32,7 +32,6 @@ function* signInWorker(action) {
           password: action.payLoad.p,
         })
       );
-      console.log("___ ", data);
       let token = data.data.token;
       let email = data.data.result[0].email;
 

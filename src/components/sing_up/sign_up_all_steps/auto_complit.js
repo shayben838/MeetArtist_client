@@ -13,7 +13,6 @@ function AutoComplit({
   placeholder,
   errors,
 }) {
-  console.log(dataArr);
   // INIT
   const [autoComplite, setAutoComplite] = useState(dataArr);
   let data = dataArr;

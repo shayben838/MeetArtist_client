@@ -75,7 +75,6 @@ const sendMail = async (data) => {
 // CITIES
 const getCities = async (data) => {
   const response = await fetcher.get("/cities", data);
-  console.log(response);
   return response.data;
 };
 // COUNTRIES

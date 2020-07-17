@@ -15,7 +15,6 @@ function InnerWrapSignUP({
   registerAPI,
   onChangeAutoComplit,
 }) {
-  console.log(dataAPI);
   let status = state.status;
   return (
     <div style={{ minHeight: "calc(100vh - 210px)" }}>
