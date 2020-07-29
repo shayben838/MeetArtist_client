@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./card_artist.css";
 import mainColor from "../../style_main/style";
 import { Link } from "react-router-dom";
 import wave from "./wave.png";
+import DataContext from "../../context/Data/dataContext";
+const styleCard = {
+  wrap: "col-12  col-sm-6 col-lg-3 mb-2 ",
+  inner: "card mr-auto ml-auto",
+};
 
-function CardArtist({ styleCard, user, dataAPI }) {
-  const profession = dataAPI.profession.filter(
+const CardArtist = ({ user }) => {
+  const dataContext = useContext(DataContext);
+  const { profession, countries, genre } = dataContext;
+  // PROFESSION
+  const profession_ = profession.filter(
     (item) => item.id === user.professions
   )[0].name;
-  const country = dataAPI.countries
+  // COUNTRY
+  const country_ = countries
     .filter((item) => item.id === user.country_id)[0]
     .name.toUpperCase();
-  const genre = dataAPI.genre.filter(
-    (item) => item.id + "" === user.genre_id
-  )[0].name;
+  // GENRE
+  const genre_ = genre.filter((item) => item.id + "" === user.genre_id)[0].name;
   return (
-    <div className={styleCard.wrap} style={{ marginTop: "30px" }}>
+    <div
+      className={styleCard.wrap}
+      style={{
+        marginTop: "30px",
+        display: "inline",
+        justifyContent: "center",
+      }}
+    >
       <div className={styleCard.inner} style={{ width: "15rem" }}>
         <div>
-          {/* here need to change to the real image of the user */}
-
-          {/* <img src={"https://meetartistserver.herokuapp.com/" + user.profile_image} className="card-img-top" alt="..." height="200" width="100%" /> */}
           <img
             src={wave}
             className='card-img-top'
@@ -39,15 +51,15 @@ function CardArtist({ styleCard, user, dataAPI }) {
           </h5>
           <p className='m-0 ' style={{ textTransform: "capitalize" }}>
             <i className='icons fas fa-award icon_profession_card'></i>
-            {profession}
+            {profession_}
           </p>
           <p className='m-0' style={{ textTransform: "capitalize" }}>
             <i className='  mr-2 icons  fas fa-headphones-alt'></i>
-            {genre}
+            {genre_}
           </p>
           <p className='m-0 '>
             <i className='icons  fas fa-map-marker-alt  icon_country_card'></i>
-            {country}
+            {country_}
           </p>
           <Link to={"/singleArtist/" + user.id}>
             <span
@@ -103,5 +115,5 @@ function CardArtist({ styleCard, user, dataAPI }) {
       </div>
     </div>
   );
-}
+};
 export default CardArtist;

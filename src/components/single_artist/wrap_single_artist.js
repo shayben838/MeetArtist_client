@@ -1,91 +1,55 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext, Fragment } from "react";
 import { useParams } from "react-router";
-import { connect } from "react-redux";
 
 import HeaderImages from "./header_images/header_images";
 import MemberDescription from "./member_description";
-import { getSingleArtist } from "../../back_end/api/api_action";
 import Loading from "../loading/loading";
 import WrapLikesList from "./artist_likes_list/wrap_likes_list";
+import AuthContext from "../../context/auth/authContext";
+import DataContext from "../../context/Data/dataContext";
 
-// do not toche the code below:
-function useFetch() {
-  const [user, setUser] = useState("");
+const WrapSingleArtist = () => {
   let { id } = useParams();
-  const importUser = async () => {
-    const user = await getSingleArtist(id);
-    await setUser(user);
-  };
+
+  //CONTEXT
+  const authContext = useContext(AuthContext);
+  const dataContext = useContext(DataContext);
+  //
   useEffect(() => {
-    importUser();
+    authContext.loadUser();
+    dataContext.loadData();
+    dataContext.getSingleUserPage(id);
     // eslint-disable-next-line
   }, []);
-  return user;
-}
 
-function WrapSingleArtist(data) {
-  // const NewdataAPI =data.dataAPI[0]
-  const userLoged = data.user;
-  const user = useFetch();
-
+  const user = dataContext.singleUserPage;
   return (
     <div>
-      {!user ? (
+      {!user || !dataContext.users ? (
         <Loading />
       ) : (
         <div
           className=''
           style={{ minHeight: "calc(100vh - 207px)", marginTop: "3.5rem" }}
         >
-          <HeaderImages
-            userLoged={userLoged}
-            user={user.data.result[0]}
-            dataAPI={data.dataAPI[0]}
-          />
+          <HeaderImages />
+
           <div className='row m-0'>
             <div className='col-12 col-md-8'>
-              <MemberDescription
-                dataAPI={data.dataAPI[0]}
-                user={user.data.result[0]}
-              />
+              <MemberDescription />
             </div>
-            {userLoged.id === user.data.result[0].id && (
-              <div className='wrap_right_nav_bar col-12 col-md-4'>
-                <WrapLikesList
-                  dataAPI={[data.dataAPI]}
-                  user={user.data.result[0]}
-                  whichUser={userLoged}
-                  userLoged={userLoged}
-                  title='Artists You Like'
-                />
-              </div>
-            )}
 
-            {(!userLoged.id || userLoged.id !== user.data.result[0].id) && (
-              <div className='wrap_right_nav_bar col-12 col-md-4'>
-                <WrapLikesList
-                  dataAPI={[data.dataAPI]}
-                  whichUser={user.data.result[0]}
-                  userLoged={userLoged}
-                  title={`${user.data.result[0].display_name} Likes :`}
-                />
-              </div>
-            )}
-
-            {/* {!userLoged.id &&
-                            <div className="wrap_right_nav_bar col-12 col-md-4">
-                                {alert("3")}
-                                <WrapLikesList whichUser={user.data.result[0]} userLoged={userLoged} title={`${user.data.result[0].display_name} Likes`} />
-                            </div>
-                        } */}
+            <Fragment>
+              {true && (
+                <div className='wrap_right_nav_bar col-12 col-md-4'>
+                  <WrapLikesList />
+                </div>
+              )}
+            </Fragment>
           </div>
         </div>
       )}
     </div>
   );
-}
-
-/** REDUX */
-const MapStateToProps = (state) => ({ user: state.user });
-
-export default connect(MapStateToProps)(WrapSingleArtist);
+};
+export default WrapSingleArtist;

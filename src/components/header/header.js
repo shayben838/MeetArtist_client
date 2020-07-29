@@ -1,23 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
-import "./header.css";
 import { Link } from "react-router-dom";
+import AuthContext from "../../context/auth/authContext";
+import DataContext from "../../context/Data/dataContext";
+import "./header.css";
 import style from "../../style_main/style";
 import UserHeader from "./user/user_header";
 
-function Header({ user, logOut, dataAPI }) {
+const Header = () => {
+  // NEW CONTEXT
+  const authContext = useContext(AuthContext);
+  const dataContext = useContext(DataContext);
+  useEffect(() => {
+    authContext.loadUser();
+    dataContext.loadData();
+    // eslint-disable-next-line
+  }, []);
+  // context
+  const { users } = dataContext;
+  const { user } = authContext;
   let history = useHistory();
 
   // INIT
-  let dataArr = dataAPI.users;
+  // let dataArr = dataAPI.users;
   let option = "display_name";
   let buttonName = "userHeadear";
 
   // AUTO COMPLITE MANUAL
-  const [autoComplite, setAutoComplite] = useState(dataArr);
+  const [autoComplite, setAutoComplite] = useState(users);
   const [lenAuto, setLenAuto] = useState(0);
-  let data = dataArr;
+  let data = users;
 
   const onInputChange = ({ target: { name, value } }) => {
     let len = value.length;
@@ -67,7 +79,7 @@ function Header({ user, logOut, dataAPI }) {
                 </li>
               </Link>
             )}
-            {user && <UserHeader user={user} logOut={logOut} />}
+            {user && <UserHeader />}
 
             {!user && (
               <Link to='/SignUp' className='headers_link'>
@@ -81,11 +93,6 @@ function Header({ user, logOut, dataAPI }) {
             <Link to={"/search"} className='headers_link'>
               <li className='nav-link'>All Artist`s</li>
             </Link>
-            {/* {user&&
-                        <Link to="/chat" className="headers_link">
-                            <li className="nav-link" >Chat</li>
-                        </Link>
-                        } */}
 
             <div className='d-none d-lg-block  wrap_search_hedear'>
               <div className='wrap_ul'>
@@ -127,6 +134,6 @@ function Header({ user, logOut, dataAPI }) {
       </nav>
     </div>
   );
-}
+};
 
 export default Header;

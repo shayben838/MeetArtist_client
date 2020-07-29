@@ -17,7 +17,6 @@ function AutoComplit({
   const [autoComplite, setAutoComplite] = useState(dataArr);
   let data = dataArr;
   let inputValue = stateVal;
-
   // AUTO COMPLETE
   const onInputChange = ({ target: { name, value } }) => {
     let len = value.length;
@@ -26,11 +25,11 @@ function AutoComplit({
     );
     setAutoComplite(newData);
   };
+  //
   if (typeof stateVal === "number") {
     let name = dataArr.filter((item) => item.id === stateVal)[0][option];
     inputValue = name;
   }
-
   return (
     <div>
       <div

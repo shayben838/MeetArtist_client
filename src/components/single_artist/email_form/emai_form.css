@@ -1,115 +1,132 @@
-.wrap_email_form{
-    background-color: rgba(0,0,0,0.9);
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    z-index: 10;
+.wrap_email_form {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  z-index: 10;
 }
-.wrap_emai_box{
-    height: 100%;
-    width: 100%;
-    display: flex;
+.wrap_emai_box {
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
-#form_email_mobil{
-    background-color: whitesmoke;
-    overflow: auto;
-
+#form_email_mobil {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+  left: 0px;
+  background-color: whitesmoke;
+  overflow: auto;
 }
-.mobile_email_box{
-    height: 100vh;
-    text-align: center;
-    padding-top: 30%;
+.mobile_email_box {
+  height: 100vh;
+  text-align: center;
+  padding-top: 30%;
 }
-.wrap_text_area_email{
-    margin-top: 20px;
+.wrap_text_area_email {
+  margin-top: 20px;
 }
-.wrap_send_email_button{
-    width: 30%;
-    margin-left: auto;
-    margin-right: auto;
-    transition: all 1s;
+.wrap_send_email_button {
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 1s;
 }
-.wrap_send_email_button:hover{
-    width: 40%;
+.wrap_send_email_button:hover {
+  width: 40%;
 }
-.email_send_button{
-    width: 80%;
-    border: none;
-    background-color:#383b3f ;
-    color: whitesmoke;
-    font-size: 20px;
-    border-radius: 10px;
-    padding: 5px;
-    margin-bottom: 30px;
-    transition: all .5s;
+.email_send_button {
+  width: 80%;
+  border: none;
+  background-color: #383b3f;
+  color: whitesmoke;
+  font-size: 20px;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 30px;
+  transition: all 0.5s;
 }
-.email_send_button:hover{
-    background-color: whitesmoke;
-    font-weight: bolder;
-    color: #383b3f ;
+.email_send_button:hover {
+  background-color: whitesmoke;
+  font-weight: bolder;
+  color: #383b3f;
 }
-.textarea_email{width:80%}
-.outForm{
-    font-size: 30px;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    cursor: pointer;
-    padding: 10px;
-    transition: all .4s;
-    border: 2px solid transparent;
-    border-radius: 40px;
+.textarea_email {
+  width: 80%;
 }
-.outForm:hover{
-    border: 2px solid whitesmoke;
+.outForm {
+  font-size: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.4s;
+  border: 2px solid transparent;
+  border-radius: 40px;
+}
+.outForm:hover {
+  border: 2px solid whitesmoke;
 }
 
 .wrap_email_form {
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.6s;
-    animation-name: animatetop;
-    animation-duration: 0.6s
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.6s;
+  animation-name: animatetop;
+  animation-duration: 0.6s;
 }
-#icon_email_links{
-    color: yellowgreen;
+#icon_email_links {
+  color: yellowgreen;
 }
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
-
 @media screen and (min-width: 500px) {
-    .mobile_email_box {
-      padding-top: 20%;
-    }
-    .outForm{
-        right: 30px;
-    }
+  .mobile_email_box {
+    padding-top: 20%;
   }
+  .outForm {
+    right: 30px;
+  }
+}
 @media screen and (min-width: 800px) {
-    .mobile_email_box {
-      padding-top: 10%;
-    }
-    .textarea_email{
-        width: 60%;
-    }
-    .email_send_button{
-        width: 40%;
-    }
-    .outForm{
-        font-size: 40px;
-        top: 20px;
-        right: 30px;
-    }
+  .mobile_email_box {
+    padding-top: 10%;
   }
+  .textarea_email {
+    width: 60%;
+  }
+  .email_send_button {
+    width: 40%;
+  }
+  .outForm {
+    font-size: 40px;
+    top: 20px;
+    right: 30px;
+  }
+}

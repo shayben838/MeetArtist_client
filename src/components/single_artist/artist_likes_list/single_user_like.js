@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./wrap_likes_list.css";
 import wave from "../../card_artist/wave.png";
+import DataContext from "../../../context/Data/dataContext";
 
-function SingleUserLike({ user, dataAPI }) {
-  const city = dataAPI[0].cities.filter((item) => item.id === user.city_id)[0]
+const SingleUserLike = ({ user }) => {
+  const dataContext = useContext(DataContext);
+
+  const city = dataContext.cities.filter((item) => item.id === user.city_id)[0]
     .name;
   return (
     <li className='li_likes'>
@@ -23,5 +26,5 @@ function SingleUserLike({ user, dataAPI }) {
       </Link>
     </li>
   );
-}
+};
 export default SingleUserLike;

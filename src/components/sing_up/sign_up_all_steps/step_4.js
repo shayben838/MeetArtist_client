@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import InputErrors from "../../validetor/input_errors";
 import AutoComplit from "./auto_complit";
+import SignUpContext from "../../../context/SignUp/SignUpContext";
+import DataContext from "../../../context/Data/dataContext";
 
-function StepThree({
-  onchange,
-  dataAPI,
-  onChangeAutoComplit,
-  state,
-  profession,
-  studio,
-  genre,
-  sub_genre,
-  booking,
-  sound_cloud,
-  you_tube,
-}) {
-  const keys = ["sound_cloud", "you_tube"];
-  const values = [sound_cloud, you_tube];
+const StepThree = () => {
+  const dataContext = useContext(DataContext);
+  const {
+    profession: professions,
+    genre: genres,
+    sub_genre: sub_genres,
+  } = dataContext;
+  const signUpContext = useContext(SignUpContext);
+  const {
+    onchange,
+    sound_cloud,
+    you_tube,
+    booking,
+    profession,
+    genre,
+    sub_genre,
+    studio,
+    onChangeAutoComplit,
+  } = signUpContext;
+
   const temporeryStudioArr = [
     { id: 1, name: "Home Studio" },
     { id: 2, name: "Rent Studio" },
@@ -28,97 +35,111 @@ function StepThree({
   ];
   return (
     <div>
-      {keys.map((singleState, index) => (
-        <div className='position-relative' key={index}>
-          <input
-            type='text'
-            name={singleState}
-            placeholder={singleState}
-            id={singleState}
-            defaultValue={state[singleState].value}
-            className={"form-control mb-1"}
-            onBlur={onchange}
-          />
-          {/* <span className="must_form_input">*</span> */}
-          <InputErrors errors={values[index]}> </InputErrors>
-        </div>
-      ))}
+      {/*  */}
+      <div className='position-relative'>
+        <input
+          type='text'
+          name={"sound_cloud"}
+          placeholder={"Sound Cloud"}
+          id={"sound_cloud"}
+          defaultValue={sound_cloud.value}
+          className={"form-control mb-1"}
+          onBlur={(e) =>
+            onchange({ name: e.target.name, value: e.target.value })
+          }
+        />
+        <span className='must_form_input'>*</span>
+        <InputErrors errors={sound_cloud.errors}> </InputErrors>
+      </div>
+
+      <div className='position-relative'>
+        <input
+          type='text'
+          name={"you_tube"}
+          placeholder={"You Tube"}
+          id={"you_tube"}
+          defaultValue={you_tube.value}
+          className={"form-control mb-1"}
+          onBlur={(e) =>
+            onchange({ name: e.target.name, value: e.target.value })
+          }
+        />
+        <span className='must_form_input'>*</span>
+        <InputErrors errors={you_tube.errors}> </InputErrors>
+      </div>
+      {/*  */}
+
       {/* BOOKING */}
       <AutoComplit
         optionType='button_drop_down_sign_up'
-        state={state}
         onChangeAutoComplit={onChangeAutoComplit}
         onchange={onchange}
-        stateVal={state.booking.value}
+        stateVal={booking.value}
         dataArr={temporeryBookingArr}
         option={"name"}
         placeholder={"Have Booking?"}
         InputName={"booking"}
-        errors={booking}
+        errors={booking.errors}
       />
       {/* PROFESSION */}
-      {state.booking.value && (
+      {booking.value && (
         <AutoComplit
           optionType='button_drop_down_sign_up'
-          state={state}
           onChangeAutoComplit={onChangeAutoComplit}
           onchange={onchange}
-          stateVal={state.profession.value}
-          dataArr={dataAPI.profession}
+          stateVal={profession.value}
+          dataArr={professions}
           option={"name"}
           placeholder={"Profession"}
           InputName={"profession"}
-          errors={profession}
+          errors={profession.errors}
         />
       )}
       {/* GENRE */}
-      {state.profession.value && (
+      {profession.value && (
         <AutoComplit
           optionType='button_drop_down_sign_up'
-          state={state}
           onChangeAutoComplit={onChangeAutoComplit}
           onchange={onchange}
-          stateVal={state.genre.value}
-          dataArr={dataAPI.genre}
+          stateVal={genre.value}
+          dataArr={genres}
           option={"name"}
           placeholder={"Genre"}
           InputName={"genre"}
-          errors={genre}
+          errors={genre.errors}
         />
       )}
       {/* SUB GENRE */}
-      {state.genre.value && (
+      {genre.value && (
         <AutoComplit
           optionType='button_drop_down_sign_up'
-          state={state}
           onChangeAutoComplit={onChangeAutoComplit}
           onchange={onchange}
-          stateVal={state.sub_genre.value}
-          dataArr={dataAPI.sub_genre.filter(
-            (item) => item["genre_id"] === state.genre.value
+          stateVal={sub_genre.value}
+          dataArr={sub_genres.filter(
+            (item) => item["genre_id"] === genre.value
           )}
           option={"sub_name"}
           placeholder={"Sub Genre"}
           InputName={"sub_genre"}
-          errors={sub_genre}
+          errors={sub_genre.errors}
         />
       )}
       {/* STUDIO */}
-      {state.sub_genre.value && (
+      {sub_genre.value && (
         <AutoComplit
           optionType='button_drop_down_sign_up'
-          state={state}
           onChangeAutoComplit={onChangeAutoComplit}
           onchange={onchange}
-          stateVal={state.studio.value}
+          stateVal={studio.value}
           dataArr={temporeryStudioArr}
           option={"name"}
           placeholder={"Studio"}
           InputName={"studio"}
-          errors={studio}
+          errors={studio.errors}
         />
       )}
     </div>
   );
-}
+};
 export default StepThree;

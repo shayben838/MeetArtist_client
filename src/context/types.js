@@ -1,0 +1,37 @@
+export const GET_CONTACTS = "GET_CONTACTS";
+export const ADD_CONTACT = "ADD_CONTACT";
+export const DELETE_CONTACT = "DELETE_CONTACT";
+export const SET_CURRENT = "SET_CURRENT";
+export const CLEAR_CURRENT = "CLEAR_CURRENT";
+export const UPDATE_CONTACT = "UPDATE_CONTACT";
+export const FILTER_CONTACT = "FILTER_CONTACT";
+export const CLEAR_CONTACTS = "CLEAR_CONTACTS";
+export const CONTACT_ERROR = "CONTACT_ERROR";
+export const SET_ALERT = "SET_ALERT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+// SIGNUP
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_FAIL = "SIGNUP_FAIL";
+export const SIGNUP_CHANGE_STATUS = "SIGNUP_CHANGE_STATUS";
+export const SIGNUP_UPDATE_STATE = "SIGNUP_UPDATE_STATE";
+export const SIGNUP_LOADED = "SIGNUP_UPDATE_STATE";
+export const SIGNUP_INIT = "SIGNUP_INIT";
+export const SET_STATE_FOR_UPDATE = "SET_STATE_FOR_UPDATE";
+//
+export const USER_LOADED = "USER_LOADED";
+export const AUTH_ERROR = "AUTH_ERROR";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGOUT = "LOGOUT";
+export const CLEAR_ERRORS = "CLEAR_ERRORS";
+// DATA
+export const LOAD_INIT_DATA = "LOAD_INIT_DATA";
+export const ERROR_DATA = "ERROR_DATA";
+export const GET_SINGLE_USER_PAGE = "GET_SINGLE_USER_PAGE";
+export const SET_HAVE_LIKE = "SET_HAVE_LIKE";
+export const CLEAR_HAVE_LIKE = "CLEAR_HAVE_LIKE";
+
+// FILTER
+export const SET_FILTER = "SET_FILTER";
+export const FILTER_USERS = "FILTER_USERS";
+export const CLEAR_FILTER = "CLEAR_FILTER";

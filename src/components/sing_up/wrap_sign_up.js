@@ -95,9 +95,9 @@ class WrapSignUp extends React.Component {
     // const resultAPI = await addUser(formData);
 
     if (resultAPI.userId === "false") {
-      this.props.history.push("/sign_up_error");
+      // this.props.history.push("/sign_up_error");
     } else {
-      this.props.history.push("/log_in");
+      // this.props.history.push("/log_in");
     }
   };
 

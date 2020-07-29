@@ -1,19 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Redirect } from "react-router";
 
 import "../wrap_edit_profile.css";
 import AutoComplit from "../../../sing_up/sign_up_all_steps/auto_complit";
 import InputErrors from "../../../validetor/input_errors";
-import { updateUser } from "../../../../back_end/api/api_action";
+import SignUpContext from "../../../../context/SignUp/SignUpContext";
+import DataContext from "../../../../context/Data/dataContext";
+import AuthContext from "../../../../context/auth/authContext";
+function EditPersonalData({ user, setFormStatus }) {
+  // CONTEXT
+  const signUpContext = useContext(SignUpContext);
+  const authContext = useContext(AuthContext);
+  console.log(signUpContext);
+  const {
+    onChangeAutoComplit,
+    onchange,
 
-function EditPersonalData({
-  user,
-  dataAPI,
-  onchange,
-  onChangeAutoComplit,
-  changeStatus,
-  state,
-}) {
+    age,
+    studio: studio_user,
+    booking: booking_user,
+    genre: genre_id_user,
+    sub_genre: sub_genre_id_user,
+    updateUserData,
+  } = signUpContext;
+  console.log(studio_user);
+  // data
+  const dataContext = useContext(DataContext);
+  const {
+    profession: professions,
+    genre: genres,
+    sub_genre: sub_genres,
+    countries,
+    cities,
+  } = dataContext;
   const [loading, setLoading] = useState("");
   const [changeData, setChangeData] = useState("");
 
@@ -27,52 +46,22 @@ function EditPersonalData({
     { id: 2, name: "Not Have Booking" },
   ];
 
-  const registerAPI = async () => {
-    const ToCheck = [
-      state.age,
-      state.booking,
-      state.genre_id,
-      state.sub_genre_id,
-      state.studio,
-    ];
-    const ifNoErrors = ToCheck.filter((item) => item.errors.length > 0).length;
-    const result = { id: user.id };
-    if (ifNoErrors === 0) {
-      for (let prop in state) {
-        if (prop === "formStatus" || prop === "main_image") {
-          continue;
-        }
-        result[prop] = state[prop].value;
-      }
-      setLoading("open");
-      const resultAPI = await updateUser(result);
-      setLoading("");
-      if (resultAPI.user === "false") {
-        alert("error");
-      } else {
-        alert("All The Changes Was Saved ");
-        setChangeData("close");
-      }
-    }
-  };
-
   let booking;
   let genre_id;
   let sub_genre_id;
   let studio;
-  if (state.booking.value) {
-    booking = parseInt(state.booking.value);
+  if (booking_user.value) {
+    booking = parseInt(booking_user.value);
   }
-  if (state.genre_id.value) {
-    genre_id = parseInt(state.genre_id.value);
+  if (genre_id_user.value) {
+    genre_id = parseInt(genre_id_user.value);
   }
-  if (state.sub_genre_id.value) {
-    sub_genre_id = parseInt(state.sub_genre_id.value);
+  if (sub_genre_id_user.value) {
+    sub_genre_id = parseInt(sub_genre_id_user.value);
   }
-  if (state.studio.value) {
-    studio = parseInt(state.studio.value);
+  if (studio_user.value) {
+    studio = parseInt(studio_user.value);
   }
-
   return (
     <div className='wrap_edit_form'>
       {changeData && <Redirect to={`/singleArtist/${user.id}`} />}
@@ -93,12 +82,14 @@ function EditPersonalData({
                 type='text'
                 name='age'
                 placeholder='Age'
-                defaultValue={state.age.value}
+                defaultValue={age.value}
                 className={"form-control mb-1"}
-                onBlur={onchange}
+                onBlur={(e) =>
+                  onchange({ name: e.target.name, value: e.target.value })
+                }
               />
               <span className='must_form_input'>*</span>
-              <InputErrors errors={state.age.errors}> </InputErrors>
+              <InputErrors errors={age.errors}> </InputErrors>
             </div>
 
             {/* BOOKING */}
@@ -107,7 +98,6 @@ function EditPersonalData({
             </p>
             <AutoComplit
               wrap_form_auto_style={"100%"}
-              state={state}
               onChangeAutoComplit={onChangeAutoComplit}
               onchange={onchange}
               stateVal={booking}
@@ -115,7 +105,7 @@ function EditPersonalData({
               option={"name"}
               placeholder={"Have Booking?"}
               InputName={"booking"}
-              errors={state.booking.errors}
+              errors={booking_user.errors}
             />
             {/* GENRE */}
             <p className='m-0 pl-1 ' style={{ letterSpacing: "0.1rem" }}>
@@ -123,34 +113,32 @@ function EditPersonalData({
             </p>
             <AutoComplit
               wrap_form_auto_style={"100%"}
-              state={state}
               onChangeAutoComplit={onChangeAutoComplit}
               onchange={onchange}
               stateVal={genre_id}
-              dataArr={dataAPI.genre}
+              dataArr={genres}
               option={"name"}
               placeholder={"Genre"}
               InputName={"genre_id"}
-              errors={state.genre_id.errors}
+              errors={genre_id_user.errors}
             />
             {/* SUB GENRE */}
             <p className='m-0 pl-1 ' style={{ letterSpacing: "0.1rem" }}>
               Sub Genre
             </p>
-            {state.genre_id.value && (
+            {genre_id_user.value && (
               <AutoComplit
                 wrap_form_auto_style={"100%"}
-                state={state}
                 onChangeAutoComplit={onChangeAutoComplit}
                 onchange={onchange}
                 stateVal={sub_genre_id}
-                dataArr={dataAPI.sub_genre.result.filter(
-                  (item) => item["genre_id"] === parseInt(state.genre_id.value)
+                dataArr={sub_genres.filter(
+                  (item) => item["genre_id"] === parseInt(genre_id)
                 )}
                 option={"sub_name"}
                 placeholder={"Sub Genre"}
                 InputName={"sub_genre_id"}
-                errors={state.sub_genre_id.errors}
+                errors={sub_genre_id_user.errors}
               />
             )}
             {/* STUDIO */}
@@ -159,7 +147,6 @@ function EditPersonalData({
             </p>
             <AutoComplit
               wrap_form_auto_style={"100%"}
-              state={state}
               onChangeAutoComplit={onChangeAutoComplit}
               onchange={onchange}
               stateVal={studio}
@@ -167,22 +154,22 @@ function EditPersonalData({
               option={"name"}
               placeholder={"Studio"}
               InputName={"studio"}
-              errors={state.studio.errors}
+              errors={studio_user.errors}
             />
           </div>
           {/* OUT FORM */}
           <i
-            onClick={() => changeStatus("formStatus", "close")}
+            onClick={() => setFormStatus("close")}
             id='icon_out_edit'
             className='outForm fas fa-times'
           ></i>
           <button
             className='submit_button'
             type="'button"
-            onClick={() => registerAPI()}
+            onClick={() => updateUserData(authContext.user.id)}
           >
             {" "}
-            Save
+            Update
           </button>
         </div>
       )}

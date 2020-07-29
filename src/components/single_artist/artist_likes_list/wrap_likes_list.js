@@ -1,72 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, Fragment } from "react";
 import "./wrap_likes_list.css";
-import { GetAllLikesByUser } from "../../../back_end/api/api_action";
 import SingleUserLike from "./single_user_like";
+import DataContext from "../../../context/Data/dataContext";
+import AuthContext from "../../../context/auth/authContext";
+const WrapLikesList = () => {
+  // NEW CONTEXT
+  const authContext = useContext(AuthContext);
+  const dataContext = useContext(DataContext);
+  const { user } = authContext;
+  const { likesBySingleUser, singleUserPage } = dataContext;
+  return (
+    <div>
+      {likesBySingleUser && (
+        <div className='container mt-3 container_likes_list'>
+          {/* user !logged */}
+          {!user && (
+            <h1 className='lead title_likes'>{`${singleUserPage.display_name} favorit artists`}</h1>
+          )}
 
-function useFetch(userLoged, user) {
-    const [userLikes, setUserLikes] = useState("");
-
-    useEffect(() => { 
-        const importUser = async () => {
-        
-            let userLikes;
-            if (userLoged === false) {
-                 userLikes = await GetAllLikesByUser(user.id,"WRAP Like list");
-            }
-            else {
-                 userLikes = await GetAllLikesByUser(userLoged.id);
-            }
-            setUserLikes({ userLikes, })
-        }
-
-        importUser() 
-    }, [userLoged, user])
-    return userLikes
-}
-
-// dont remove the code below:
-// function useFetch(userLoged, user) {
-//     const [userLikes, setUserLikes] = useState("");
-    
-//     const importUser = async () => {
-        
-//         let userLikes;
-//         if (userLoged === false) {
-//              userLikes = await GetAllLikesByUser(user.id,"WRAP Like list");
-//         }
-//         else {
-//              userLikes = await GetAllLikesByUser(userLoged.id);
-//         }
-//         setUserLikes({ userLikes, })
-//     }
-//     useEffect(() => { 
-//         importUser() 
-//     }, [userLoged, user])
-//     return userLikes
-// }
-
-function WrapLikesList({ title, whichUser, user,dataAPI }) {
-    const newDataApi = dataAPI[0]
-    const allLiks = useFetch(whichUser, user);
-    let titleParam = title
-    if (allLiks.userLikes) {
-        if (allLiks.userLikes.allUsers.length === 0) { titleParam = `${whichUser.display_name} Not Have Artist That He Like Yet` }
-    }
-    return (
-        <div>
-            {allLiks.userLikes &&
-                <div className="container mt-3 container_likes_list">
-                    <h1 className="lead title_likes">{titleParam}</h1>
-                    <ul className="m-0 p-0 ul_likes">
-                        {allLiks.userLikes.allUsers.map((item, index) =>
-                            <SingleUserLike user={item} key={index} dataAPI={newDataApi}/>
-                            )
-                        }
-                    </ul>
-                </div>
-            }
+          {/* user logged */}
+          {user && (
+            <Fragment>
+              {singleUserPage.id === user.id && (
+                <h1 className='lead title_likes'>{"Your favorits artists"}</h1>
+              )}
+              {singleUserPage.id !== user.id && (
+                <h1 className='lead title_likes'>{`${singleUserPage.display_name} favorit artists`}</h1>
+              )}
+            </Fragment>
+          )}
+          <ul className='m-0 p-0 ul_likes'>
+            {likesBySingleUser.map((item, index) => (
+              <SingleUserLike user={item} key={index} />
+            ))}
+          </ul>
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 
 export default WrapLikesList;
