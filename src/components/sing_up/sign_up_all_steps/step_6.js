@@ -3,11 +3,13 @@ import { Redirect } from "react-router-dom";
 
 import SignUpContext from "../../../context/SignUp/SignUpContext";
 import Loading from "../../loading/loading";
+
 const StepFive = () => {
   const signUpContext = useContext(SignUpContext);
   const { registerAPI, loading, signUpSuccess, signUpFail } = signUpContext;
   useEffect(() => {
     registerAPI();
+    // eslint-disable-next-line
   }, []);
 
   return (

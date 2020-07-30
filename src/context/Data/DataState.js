@@ -159,7 +159,7 @@ const DataState = (props) => {
   // ADD LIKE
   const addLike = async ({ user_id, from_user_id }) => {
     try {
-      const response = await fetcher.post("/users/post_like", {
+      await fetcher.post("/users/post_like", {
         user_id,
         from_user_id,
       });

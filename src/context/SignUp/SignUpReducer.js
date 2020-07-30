@@ -164,5 +164,7 @@ export default (state, action) => {
           value: action.payload.headline,
         },
       };
+    default:
+      return state;
   }
 };

@@ -14,6 +14,7 @@ const WrapEditProfile = () => {
   //
   useEffect(() => {
     signUpContext.setStateForUpdate(authContext.user);
+    // eslint-disable-next-line
   }, [authContext.user]);
   return (
     <div>

@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 import StepOne from "./sign_up_all_steps/step1";
 import StepTwo from "./sign_up_all_steps/step_3";
 import StepThree from "./sign_up_all_steps/step_4";
-import StepFour from "./sign_up_all_steps/step_5";
 import StepFive from "./sign_up_all_steps/step_6";
 import SignUpContext from "../../context/SignUp/SignUpContext";
 
 const InnerWrapSignUP = () => {
   // NEW CONTEXT
   const signUpState = useContext(SignUpContext);
-  const { changeStatus, registerAPI, status, stateInit } = signUpState;
+  const { changeStatus, status, stateInit } = signUpState;
   useEffect(() => {
     stateInit();
+    // eslint-disable-next-line
   }, []);
   //
   return (

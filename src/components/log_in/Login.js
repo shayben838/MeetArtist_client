@@ -98,7 +98,6 @@ const Login = (props) => {
             type='submit'
             value='Login'
             className='btn btn-lg btn-dark btn-block'
-            type='submit'
           />
           <div className='mt-3 d-flex justify-content-center'></div>
           <p className='mt-5 mb-0 text-muted'>© 2019-2020</p>

@@ -81,7 +81,7 @@ const SignUpState = (props) => {
   };
 
   const onChangeAutoComplit = (name, value) => {
-    const errors = validate(name, value, state[name].validations);
+    // const errors = validate(name, value, state[name].validations);
     onchange({ name, value });
   };
 

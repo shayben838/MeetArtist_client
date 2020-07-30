@@ -14,7 +14,6 @@ const MainPage = () => {
     dataContext.loadData();
     // eslint-disable-next-line
   }, []);
-  console.log(dataContext);
   let users = dataContext.users;
   return (
     <div>

@@ -14,7 +14,6 @@ import SignUpError from "./components/sing_up/sign_up_error_sucsses/sign_up_erro
 import AuthState from "./context/auth/AuthState";
 import DataState from "./context/Data/DataState";
 import SignUpState from "./context/SignUp/SignUpState";
-import PermissionEmail from "./components/permission/permission_email";
 import Permission from "./components/permission/permission";
 // fix login error msg with Auth state
 

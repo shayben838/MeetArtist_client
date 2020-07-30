@@ -87,5 +87,7 @@ export default (state, action) => {
         ...state,
         haveLike: null,
       };
+    default:
+      return state;
   }
 };

@@ -1,4 +1,4 @@
-import React, { useContext, useCallback } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./wrap_likes_list.css";
 import wave from "../../card_artist/wave.png";

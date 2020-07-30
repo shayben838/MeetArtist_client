@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Loading from "../loading/loading";
-import FilterRow from "./filter_row/wrap_filter_row copy";
+import FilterRow from "./filter_row/wrap_filter_row";
 import DataContext from "../../context/Data/dataContext";
 
 const WrapSearchPage = () => {
