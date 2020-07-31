@@ -15,8 +15,10 @@ import AuthState from "./context/auth/AuthState";
 import DataState from "./context/Data/DataState";
 import SignUpState from "./context/SignUp/SignUpState";
 import Permission from "./components/permission/permission";
-// fix login error msg with Auth state
 
+// fix login error msg with Auth state
+// check if update profile is working well
+//
 const App = () => {
   return (
     <AuthState>

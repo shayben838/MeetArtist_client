@@ -1,19 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import CaruselMainPage from "./carousel_main_page/carusel_main_page";
 import GalleryMainPage from "./gallery_main_page/gallery_main_page";
 import Presentation from "./presentation_main_page/presentation_main_page";
 import Loading from "../loading/loading";
-import AuthContext from "../../context/auth/authContext";
 import DataContext from "../../context/Data/dataContext";
 const MainPage = () => {
   // NEW CONTEXT
-  const authContext = useContext(AuthContext);
   const dataContext = useContext(DataContext);
-  useEffect(() => {
-    authContext.loadUser();
-    dataContext.loadData();
-    // eslint-disable-next-line
-  }, []);
   let users = dataContext.users;
   return (
     <div>
